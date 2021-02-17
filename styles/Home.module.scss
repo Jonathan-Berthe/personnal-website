@@ -1,0 +1,111 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+.section1 {
+  background-color: $dark-primary-color;
+}
+
+.section1Content {
+  @extend %flex-center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100vw;
+  padding-left: 45px;
+  color: $text-primary-color;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: -3;
+  .h1 {
+    text-transform: uppercase;
+    font-size: 60px;
+  }
+
+  .h2 {
+    font-size: 40px;
+    margin-top: 10px;
+  }
+}
+
+.portraitContainer {
+  position: relative;
+  @extend %flex-center;
+
+  .imgContainer {
+    @extend %flex-center;
+    width: 250px;
+    height: 250px;
+    border-radius: 5%;
+    overflow: hidden;
+    position: relative;
+
+    transform: scale(1);
+    transition: transform 1s ease-out;
+  }
+
+  .decoContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 5%;
+    transition: transform 1s ease-out;
+  }
+
+  .decoContainer1 {
+    background-color: $accent-color;
+    left: 5%;
+    top: -5%;
+    z-index: -1;
+    overflow: hidden;
+    
+  }
+
+  .decoContainer2 {
+    background-color: $beige;
+    left: -5%;
+    top: 5%;
+    z-index: -2;
+    overflow: hidden;
+  }
+
+
+  &:hover{
+    .imgContainer{
+      transform: scale(1.2);
+    }
+
+    .decoContainer1 {
+      transform: translate(35%,-35%);
+    }
+
+    .decoContainer2 {
+      transform: translate(-35%,35%);
+    }
+  
+    /* .decoContainer2 {
+      background-color: $beige;
+      left: -5%;
+      top: 5%;
+      z-index: -2;
+      overflow: hidden;
+    } */
+  }
+}
+
+.cercleBeigeBottom {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: $beige;
+}

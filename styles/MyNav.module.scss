@@ -1,0 +1,56 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+.navContainer{
+    display: flex;
+    color: $text-primary-color;
+    font-size: 15px;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    ul {
+        display: flex;
+    }
+
+    li {
+        @extend %flex-center;
+        margin: 25px 10px;
+        padding: 0 5px;
+        border-radius: 5%;
+        min-width: 70px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    li:not(.logo, .contactMe)::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $text-primary-color;
+        transform: translate(-110%, 15px);
+        
+        
+    }
+
+    li:not(.logo, .contactMe):hover::before{
+        transform: translate(110%, 15px);
+        transition: transform .9s ease-out;
+    }
+
+    .contactMe{
+        text-transform: uppercase;
+        margin-left: 30px;
+        padding: 5px 15px;
+        border-radius: 15px;
+        background-color: $accent-color;
+        color: $text-accent-color;
+        font-weight: 600;
+
+        &:hover{
+            filter: opacity(0.8);
+        }
+    }
+}

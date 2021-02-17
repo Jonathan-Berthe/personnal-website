@@ -1,65 +1,90 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Layout from '../components/layout'
+import styles from '../styles/Home.module.scss'
+
+import Image from 'next/image'
+import { useEffect } from 'react'
 
 export default function Home() {
+
+  const offsetCalculate = (posRelX, posRelY, max) => {
+    let offsetXMax = 0
+    if (posRelY <= 0.5) offsetXMax = max * 2 * posRelY
+    else if (posRelY >= 0.5 && posRelY < 1) offsetXMax = max * 2 - max * 2 * posRelY
+    else if (posRelY >= 1) offsetXMax = 0
+
+    let offsetX = 0
+    if (posRelX <= 0.5) offsetX = -2 * offsetXMax * posRelX
+    else if (posRelX >= 0.5 && posRelX < 1) offsetX = -2 * offsetXMax + 2 * offsetXMax * posRelX
+    else if (posRelX >= 1) offsetX = 0
+
+    return offsetX
+  }
+
+  // Parallax effect
+  const onMouseMove = event => {
+    const rect = event.target.getBoundingClientRect()
+    const posRelX = (event.clientX - rect.left) / rect.width
+    const posRelY = (event.clientY - rect.top) / rect.height
+
+    const offsetX = offsetCalculate(posRelX, posRelY, 35)
+    const offsetY = offsetCalculate(posRelY, posRelX, 35)
+    const scaleFact = 1 - offsetCalculate(posRelX, posRelY, 0.13)
+
+    document.getElementsByClassName(styles.imgContainer)[0].style.transform = `translate(${offsetX}%,0%) scale(${scaleFact})`
+    document.getElementsByClassName(styles.decoContainer1)[0].style.transform = `translate(${-offsetX}%, ${offsetY}%) scale(${scaleFact}`
+    document.getElementsByClassName(styles.decoContainer2)[0].style.transform = `translate(${2 * offsetX}%, ${-offsetY}%) scale(${scaleFact}`
+  }
+
+  useEffect(() => {
+
+
+
+  }, [])
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
+      <div className={styles.section1 + ' section'} >
+        <div className={styles.section1Content}>
+          <div className={styles.titleContainer}>
+            <h1 className={styles.h1}>Jonathan Berthe</h1>
+            <h2 className={styles.h2}>Frontend developer</h2>
+            {/* <h2 className={styles.h2}>Civil Engineer</h2> */}
+          </div>
+          <div className={styles.spacer2}></div>
+          <div className={styles.portraitContainer}>  {/* onMouseMove={onMouseMove}> */}
+            <div className={styles.imgContainer}>
+              <Image
+                src="/../public/me.jpg"
+                alt="Picture of the author"
+                layout='fill'
+                objectFit='cover'
+              />
+            </div>
+            <div className={`${styles.decoContainer} ${styles.decoContainer1}`}>
+            <Image
+                src="/../public/carbon.png"
+                alt="code"
+                layout='fill'
+                objectFit='cover'
+              />
+            </div>
+            <div className={`${styles.decoContainer} ${styles.decoContainer2}`}>
+            <Image
+                src="/../public/carbon2.png"
+                alt="code"
+                layout='fill'
+                objectFit='cover'
+              />
+            </div>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          </div>
+          <div className={styles.spacer4}></div>
         </div>
-      </main>
+        <div className={styles.cercleBeigeBottom}>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+        </div>
+      </div>
+      <div className="section section2"></div>
+    </Layout>
   )
 }
