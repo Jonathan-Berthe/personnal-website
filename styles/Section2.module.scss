@@ -1,0 +1,48 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+.section2 {
+    background-color: $light-primary-color;
+    height: calc(100vh - 65px);
+    overflow: hidden;
+    position: relative;
+}
+
+.portfoliosContainer {
+    @extend %flex-center;
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: transform 2s ease-out;
+}
+
+
+.cercleBeige {
+    position: relative;
+    transform-origin: top center;
+    top: 0;
+    left: 150px;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    transition: transform 1s ease-out;
+    transform: rotate(0deg);
+    &::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        z-index: 5;
+    }
+    &:hover{
+        transform: rotate(-180.0001deg) !important;
+
+    }
+
+}

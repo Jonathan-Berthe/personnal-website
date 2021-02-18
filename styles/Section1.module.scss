@@ -1,0 +1,150 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+.section1 {
+    background-color: $dark-primary-color;
+    height: 100vh;
+}
+
+.section1Content {
+    @extend %flex-center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100vw;
+    padding-left: 45px;
+    color: $text-primary-color;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: -3;
+    animation-name: animation-text;
+    animation-duration: 2s;
+}
+
+.portraitContainer {
+    position: relative;
+    @extend %flex-center;
+    animation-name: animation-portrait;
+    animation-duration: 2s;
+    .imgContainer {
+        @extend %flex-center;
+        width: 250px;
+        height: 250px;
+        border-radius: 5%;
+        overflow: hidden;
+        position: relative;
+
+        transform: scale(1);
+        transition: transform 1s ease-out;
+    }
+
+    .decoContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 250px;
+        border-radius: 5%;
+        transition: transform 1s ease-out;
+    }
+
+    .decoContainer1 {
+        background-color: $accent-color;
+        left: 5%;
+        top: -5%;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .decoContainer2 {
+        background-color: $beige;
+        left: -5%;
+        top: 5%;
+        z-index: -2;
+        overflow: hidden;
+    }
+
+    &:hover {
+        .imgContainer {
+            transform: scale(1.2);
+        }
+
+        .decoContainer1 {
+            transform: translate(35%, -35%);
+        }
+
+        .decoContainer2 {
+            transform: translate(-35%, 35%);
+        }
+
+        /* .decoContainer2 {
+      background-color: $beige;
+      left: -5%;
+      top: 5%;
+      z-index: -2;
+      overflow: hidden;
+    } */
+    }
+}
+
+.cercleBeigeBottom {
+    position: relative;
+    top: calc(100% - 300px);
+    left: -150px;
+    transform-origin: bottom center;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    animation-name: animation-circle;
+    animation-duration: 2s;
+    transition: transform .5s ease-out;
+    transform: rotate(0deg);
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        background-color: $beige;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    &:hover{
+        transform: rotate(-91deg);
+    }
+}
+
+@keyframes animation-circle {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes animation-portrait {
+    0% {
+        transform: translate(1000px,-300px) rotate(90deg);
+    }
+    100% {
+        transform: translate(0,0) rotate(0);
+    }
+}
+
+@keyframes animation-text {
+    0% {
+        transform: translate(-1000px,-300px) rotate(-90deg);
+    }
+    100% {
+        transform: translate(0,0) rotate(0);
+    }
+}

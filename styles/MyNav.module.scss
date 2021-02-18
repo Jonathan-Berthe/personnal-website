@@ -3,19 +3,25 @@
 @import "./utils";
 
 .navContainer{
+    //background-color: white;
+    animation-name: animation-nav;
+    animation-duration: 2s;
     display: flex;
     color: $text-primary-color;
     font-size: 15px;
     position: fixed;
     z-index: 1;
     width: 100vw;
+    height: 65px;
+    transition: background-color 0.5s ease;
+
     ul {
         display: flex;
     }
 
     li {
         @extend %flex-center;
-        margin: 25px 10px;
+        margin: 15px 10px;
         padding: 0 5px;
         border-radius: 5%;
         min-width: 70px;
@@ -31,13 +37,14 @@
         height: 2px;
         background-color: $text-primary-color;
         transform: translate(-110%, 15px);
+        transition: transform .3s ease-out;
         
         
     }
 
     li:not(.logo, .contactMe):hover::before{
-        transform: translate(110%, 15px);
-        transition: transform .9s ease-out;
+        transform: translate(0, 15px);
+        
     }
 
     .contactMe{
@@ -52,5 +59,20 @@
         &:hover{
             filter: opacity(0.8);
         }
+    }
+}
+
+.navContainer.active{
+    background-color: #f1f1f1;
+    color: $text-accent-color;
+}
+
+
+@keyframes animation-nav {
+    0% {
+        transform: translate(0,-300px);
+    }
+    100% {
+        transform: translate(0,0);
     }
 }
