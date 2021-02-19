@@ -7,7 +7,7 @@ export default function Section1() {
         <div className={styles.section1Content}>
           <div className={styles.titleContainer}>
             <h1>Jonathan Berthe</h1>
-            <h2>Frontend developer</h2>
+            <h2>Front-end developer</h2>
           </div>
           <div className={styles.spacer2}></div>
           <div className={styles.portraitContainer}> 

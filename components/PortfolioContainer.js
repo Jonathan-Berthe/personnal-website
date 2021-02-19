@@ -1,43 +1,56 @@
 import styles from '../styles/PortfolioContainer.module.scss'
-import Image from 'next/image'
 
+import { Controller, Scene } from "react-scrollmagic"
+import { Tween } from "react-gsap"
+import PortfolioItem from './PortfolioItem'
+
+import datasPortfolio from '../public/dataPortfolio'
+import MobileSVG from '../public/mobile.svg'
+import DesktopSVG from '../public/desktop.svg'
 
 export default function PortfolioContainer({ title }) {
 
+    const listOfProjects = datasPortfolio.filter(e => e.type === title)
+    const nbrOfProjects = listOfProjects.length
+
     const handleClick = (e) => {
+
+        // Determine the position in the carrousel of the element by parsing his classname
         const listOfClassName = e.target.classList
         let posIndexOfElem = 0
         for (const className of listOfClassName) {
-            const pos = className.indexOf('pos')
-            if (pos > -1) {
-                posIndexOfElem = parseInt(className.substring(pos + 3, pos + 4))
+            const posPosition = className.indexOf('pos')
+
+            // className is witch one with 'pos' substring inside
+            if (posPosition > -1) {
+                posIndexOfElem = parseInt(className.substring(posPosition + 3, posPosition + 4))
                 break
             }
         }
 
+        // If we click to move the carrousel
         if (posIndexOfElem === 1 || posIndexOfElem === 3) {
+            const previousElem = Array.from(Array(nbrOfProjects).keys()).map((i) => (
+                document.querySelectorAll(`.${title}.${styles[`pos${i + 1}`]}`)[0]
+            ))
+            previousElem.forEach((elem, i) => {
+                elem.classList.remove(styles[`pos${i + 1}`])
+            })
 
-            const previousElem1 = document.querySelectorAll(`.${title}.${styles.pos1}`)[0]
-            const previousElem2 = document.querySelectorAll(`.${title}.${styles.pos2}`)[0]
-            const previousElem3 = document.querySelectorAll(`.${title}.${styles.pos3}`)[0]
-            const previousElem4 = document.querySelectorAll(`.${title}.${styles.pos4}`)[0]
-
-            previousElem1.classList.remove(styles.pos1)
-            previousElem2.classList.remove(styles.pos2)
-            previousElem3.classList.remove(styles.pos3)
-            previousElem4.classList.remove(styles.pos4)
-
+            // if we clicking on the left element of the carrousel => right shift of all elements
             if (posIndexOfElem === 1) {
-                previousElem1.classList.add(styles.pos2)
-                previousElem2.classList.add(styles.pos3)
-                previousElem3.classList.add(styles.pos4)
-                previousElem4.classList.add(styles.pos1)
+                for (let i = 0; i < previousElem.length - 1; i++) {
+                    previousElem[i].classList.add(styles[`pos${i + 2}`])
+                }
+                previousElem[previousElem.length - 1].classList.add(styles.pos1)
+
             }
+            // if we clicking on the right element of the carrousel => left shift of all elements
             else if (posIndexOfElem === 3) {
-                previousElem1.classList.add(styles.pos4)
-                previousElem4.classList.add(styles.pos3)
-                previousElem3.classList.add(styles.pos2)
-                previousElem2.classList.add(styles.pos1)
+                for (let i = previousElem.length - 1; i > 0; i--) {
+                    previousElem[i].classList.add(styles[`pos${i}`])
+                }
+                previousElem[0].classList.add(styles[`pos${previousElem.length}`])
             }
 
         }
@@ -45,83 +58,44 @@ export default function PortfolioContainer({ title }) {
     }
 
     return (
-
-        <div className={`${styles.portfolioWebContainer} ${styles.portfolioContainer}`}>
-            <h2>{title}</h2>
-            <div className={styles.projectsContainer}>
-                <div onClick={handleClick} className={`${title} ${styles.project} ${styles.pos1}`}>
-                    <div className={styles.imageContainer}>
-                        <Image
-                            className={styles.image}
-                            src="/../public/benjamin.png"
-                            alt="Picture of the author"
-                            layout="fill"
-                            object-fit='contain'
-                        />
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <div className={styles.rowLogoContainer}>
-
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <p className={styles.p}>Challenge of web integration from the youtuber Benjamin Code.</p>
-                    <div className={styles.spacer8}></div>
-                </div>
-                <div onClick={handleClick} className={`${title} ${styles.project} ${styles.pos2}`}>
-                    <div className={styles.imageContainer}>
-                        <Image
-                            className={styles.image}
-                            src="/../public/benjamin.png"
-                            alt="Picture of the author"
-                            layout="fill"
-                            object-fit='contain'
-                        />
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <div className={styles.rowLogoContainer}>
-
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <p className={styles.p}>Challenge of web integration from the youtuber Benjamin Code.</p>
-                    <div className={styles.spacer8}></div>
-                </div>
-                <div onClick={handleClick} className={`${title} ${styles.project} ${styles.pos3}`}>
-                <div className={styles.imageContainer}>
-                        <Image
-                            className={styles.image}
-                            src="/../public/benjamin.png"
-                            alt="Picture of the author"
-                            layout="fill"
-                            object-fit='contain'
-                        /> 
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <div className={styles.rowLogoContainer}>
-                        
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <p className={styles.p}>Challenge of web integration from the youtuber Benjamin Code.</p>
-                    <div className={styles.spacer8}></div>
-                </div>
-                <div onClick={handleClick} className={`${title} ${styles.project} ${styles.pos4}`}>
-                <div className={styles.imageContainer}>
-                        <Image
-                            className={styles.image}
-                            src="/../public/benjamin.png"
-                            alt="Picture of the author"
-                            layout="fill"
-                            object-fit='contain'
-                        /> 
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <div className={styles.rowLogoContainer}>
-                        
-                    </div>
-                    <div className={styles.spacer1}></div>
-                    <p className={styles.p}>Challenge of web integration from the youtuber Benjamin Code.</p>
-                    <div className={styles.spacer8}></div>
-                </div>
-            </div>
-        </div >
+        <Controller >
+            <Scene triggerHook={0.5} duration={0} reverse={false}>
+                <Tween from={{ x: title === 'Web' ? -1500 : 1500 }} to={{ x: 0 }}>
+                    <div className={`${styles.portfolioContainer}`}>
+                        <div className={styles.spacer1}></div>
+                        {title === 'Web' && (
+                            <>
+                                <div className={styles.titleContainer}>
+                                    <DesktopSVG className={styles.svg} />
+                                    <h2 className={styles.h2}>Web</h2>
+                                </div>
+                                <div className={styles.spacer3}></div>
+                            </>
+                        )}
+                        <div className={styles.projectsContainer}>
+                            {
+                                listOfProjects.map((projectData, i) => {
+                                    return (
+                                        <div key={i} onClick={handleClick} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
+                                            <PortfolioItem data={projectData} />
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        {title === 'App' && (
+                            <>
+                                <div className={styles.spacer3}></div>
+                                <div className={styles.titleContainer}>
+                                    <MobileSVG className={styles.svg} />
+                                    <h2 className={styles.h2}>Mobile</h2>
+                                </div>
+                            </>
+                        )}
+                        <div className={styles.spacer1}></div>
+                    </div >
+                </Tween>
+            </Scene>
+        </Controller >
     )
 }

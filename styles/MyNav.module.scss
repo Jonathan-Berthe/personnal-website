@@ -53,18 +53,43 @@
         padding: 5px 15px;
         border-radius: 15px;
         background-color: $accent-color;
-        color: $text-accent-color;
         font-weight: 600;
 
+        a {
+            color: $text-accent-color;
+        }
         &:hover{
             filter: opacity(0.8);
         }
     }
 }
 
+.svg{
+    path{
+        fill: #f1f1f1; 
+    }
+    height: 32px;
+    width: auto;
+    
+    &:hover{
+        filter: opacity(0.8);
+    }
+    
+}
+
 .navContainer.active{
     background-color: #f1f1f1;
     color: $text-accent-color;
+    
+    .svg{
+        filter: opacity(0.8);
+        path{
+            fill: $text-accent-color; 
+        }
+        &:hover{
+            filter: opacity(0.6);
+        }
+    }
 }
 
 

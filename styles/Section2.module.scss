@@ -2,25 +2,41 @@
 @import "./_placeholders.scss";
 @import "./utils";
 
+$sectHeigh: calc(100vh - 65px);
+
 .section2 {
     background-color: $light-primary-color;
-    height: calc(100vh - 65px);
+    height:  calc(2 * #{$sectHeigh});
     overflow: hidden;
     position: relative;
 }
 
 .portfoliosContainer {
     @extend %flex-center;
+    flex-direction: column;
     position: absolute;
-    height: 80%;
+    height: calc(0.8 * #{$sectHeigh});
     width: 100%;
     top: 50%;
     transform: translate(0, -50%);
     transition: transform 2s ease-out;
+    
+}
+
+@media screen and (max-width: 1000px) {
+
+    .section2{
+        height: calc(2 * #{$sectHeigh});
+    }
+
+    .portfoliosContainer {
+        flex-direction: column;  
+    }
+     
 }
 
 
-.cercleBeige {
+.cercleRouge {
     position: relative;
     transform-origin: top center;
     top: 0;
@@ -42,7 +58,8 @@
     }
     &:hover{
         transform: rotate(-180.0001deg) !important;
-
     }
-
 }
+
+
+

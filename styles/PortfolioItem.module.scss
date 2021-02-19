@@ -1,0 +1,20 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+.imageContainer {
+    aspect-ratio: 1100/640;
+    height: auto;
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+    /* .image {
+        position: absolute;
+        height: 100%;
+        width: 100%; 
+    }  */
+}
+
+.p {
+    color: #212121;
+}
