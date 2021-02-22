@@ -6,7 +6,11 @@ import PortfolioItem from './PortfolioItem'
 
 import datasPortfolio from '../public/dataPortfolio'
 import MobileSVG from '../public/mobile.svg'
+import MobileSVGBig from '../public/mobileBig.svg'
+import MobileSVGBigRed from '../public/mobileBigRed.svg'
+
 import DesktopSVG from '../public/desktop.svg'
+import DesktopSVGBig from '../public/desktopBig.svg'
 
 export default function PortfolioContainer({ title }) {
 
@@ -66,10 +70,10 @@ export default function PortfolioContainer({ title }) {
                         {title === 'Web' && (
                             <>
                                 <div className={styles.titleContainer}>
-                                    <DesktopSVG className={styles.svg} />
+                                    <DesktopSVGBig className={styles.svg} />
                                     <h2 className={styles.h2}>Web</h2>
                                 </div>
-                                <div className={styles.spacer3}></div>
+                                <div className={styles.spacer4}></div>
                             </>
                         )}
                         <div className={styles.projectsContainer}>
@@ -85,9 +89,9 @@ export default function PortfolioContainer({ title }) {
                         </div>
                         {title === 'App' && (
                             <>
-                                <div className={styles.spacer3}></div>
+                                <div className={styles.spacer4}></div>
                                 <div className={styles.titleContainer}>
-                                    <MobileSVG className={styles.svg} />
+                                    <MobileSVGBigRed className={styles.svg} />
                                     <h2 className={styles.h2}>Mobile</h2>
                                 </div>
                             </>

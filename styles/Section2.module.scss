@@ -2,37 +2,26 @@
 @import "./_placeholders.scss";
 @import "./utils";
 
-$sectHeigh: calc(100vh - 65px);
+$sect2Heigh: calc(200vh - 130px); // 2*(100vh - 65px) because 65px is the height of the fixed navbar
 
 .section2 {
     background-color: $light-primary-color;
-    height:  calc(2 * #{$sectHeigh});
+    height:  $sect2Heigh;
     overflow: hidden;
     position: relative;
 }
 
 .portfoliosContainer {
-    @extend %flex-center;
+    display: flex;
+    align-items: center;
     flex-direction: column;
     position: absolute;
-    height: calc(0.8 * #{$sectHeigh});
     width: 100%;
     top: 50%;
     transform: translate(0, -50%);
-    transition: transform 2s ease-out;
-    
-}
-
-@media screen and (max-width: 1000px) {
-
-    .section2{
-        height: calc(2 * #{$sectHeigh});
-    }
-
-    .portfoliosContainer {
-        flex-direction: column;  
-    }
-     
+    transition: transform 2s ease-out; 
+    z-index: 6;
+    pointer-events: none;
 }
 
 
@@ -45,7 +34,8 @@ $sectHeigh: calc(100vh - 65px);
     width: 200px;
     overflow: hidden;
     transition: transform 1s ease-out;
-    transform: rotate(0deg);
+    //transform: rotate(0deg);
+    z-index: 5;
     &::after {
         content: "";
         position: absolute;
@@ -58,6 +48,31 @@ $sectHeigh: calc(100vh - 65px);
     }
     &:hover{
         transform: rotate(-180.0001deg) !important;
+    }
+}
+
+.cercleBeige {
+    position: absolute;
+    transform-origin: top center;
+    top: 65%;
+    left: calc(100% - 100px);
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    transition: transform 1s ease-out;
+    z-index: 5;
+    &::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: $beige;
+        z-index: 5;
+    }
+    &:hover{
+        transform: rotate(-90deg)  !important;
     }
 }
 

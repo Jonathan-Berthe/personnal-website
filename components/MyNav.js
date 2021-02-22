@@ -29,11 +29,11 @@ export default function MyNav() {
                 <li>Portfolio</li>
                 <li className={styles.logo}>
                     <a href="https://www.github.com/Jonathan-Berthe/" target="_blank"> <GitSVG className={styles.svg} /> </a>
-                </li>
+                </li> 
                 <li className={styles.logo}>
                     <a href="https://www.linkedin.com/in/jonathan-berthe-1a3aa294" target="_blank"> <LinkedinSVG className={styles.svg} /> </a>
                 </li>
-                <li className={styles.contactMe}><a href="mailto:jonath.berthe@gmail.com">Contact me</a></li>
+                <li className={styles.contactMe}><a href="mailto:nullepart@mozilla.org">Contact me</a></li>
             </ul>
             <div className={styles.spacer1}></div>
         </nav>

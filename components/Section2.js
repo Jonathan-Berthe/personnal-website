@@ -8,7 +8,7 @@ export default function Section2() {
     return (
         <div className={styles.section2 + ' section'} >
             <Controller>
-                <Scene triggerHook={0.75} duration={0}>
+                <Scene triggerHook={0.85} duration={0}>
                     <Tween from={{ rotation: -180.0001 }} to={{ rotation: 0 }}>
                         <div className={styles.cercleRouge}></div>
                     </Tween>
@@ -16,12 +16,18 @@ export default function Section2() {
             </Controller>
 
             <div className={styles.portfoliosContainer}>
-                <div className={styles.spacer4}></div>
                 <PortfolioContainer title='Web' />
-                <div className={styles.spacer3}></div>
                 <PortfolioContainer title='App' />
-                <div className={styles.spacer4}></div> 
             </div>
+
+            <Controller >
+                <Scene triggerHook={0} duration={0}>
+                    <Tween from={{ rotation: -90 }} to={{ rotation: 90 }}>
+                        <div className={styles.cercleBeige}></div>
+                    </Tween>
+                </Scene>
+            </Controller>
+
         </div>
     )
 }
