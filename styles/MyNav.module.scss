@@ -7,7 +7,7 @@
     animation-name: animation-nav;
     animation-duration: 2s;
     display: flex;
-    color: $text-primary-color;
+    
     font-size: 15px;
     position: fixed;
     z-index: 20;
@@ -28,6 +28,14 @@
         cursor: pointer;
         position: relative;
         overflow: hidden;
+
+        a{
+            color: $text-primary-color;
+        }
+    }
+
+    li.active{
+        background-color: green;
     }
 
     li:not(.logo, .contactMe)::before {
@@ -79,7 +87,9 @@
 
 .navContainer.active{
     background-color: #f1f1f1;
-    color: $text-accent-color;
+    a{
+        color: $text-accent-color;
+    }
     
     .svg{
         filter: opacity(0.8);

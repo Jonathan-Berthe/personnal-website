@@ -6,7 +6,7 @@ import PortfolioContainer from './PortfolioContainer';
 
 export default function Section2() {
     return (
-        <div className={styles.section2 + ' section'} >
+        <div className={styles.section2 + ' section'} id='section2'>
             <Controller>
                 <Scene triggerHook={0.85} duration={0}>
                     <Tween from={{ rotation: -180.0001 }} to={{ rotation: 0 }}>
