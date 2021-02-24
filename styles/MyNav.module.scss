@@ -31,6 +31,7 @@
 
         a{
             color: $text-primary-color;
+            pointer-events: none;
         }
     }
 
@@ -46,7 +47,7 @@
         background-color: $text-primary-color;
         transform: translate(-110%, 15px);
         transition: transform .3s ease-out;
-        
+        pointer-events: none;
         
     }
 

@@ -11,8 +11,8 @@ import LinkedinSVG from '../public/linkedin.svg'
 export default function MyNav() {
 
     const [currentSection, setCurrentSection] = useState(1)
-    const sectionRef = createRef(); // Pour avoir accès a la variable mis a jour depuis useEffect
-    sectionRef.current = currentSection;
+    /* const sectionRef = createRef(); // Pour avoir accès a la variable mis a jour depuis useEffect
+    sectionRef.current = currentSection; */
 
     useEffect(() => {
         document.addEventListener('scroll', debounce(() => {
@@ -43,7 +43,7 @@ export default function MyNav() {
 
     const handleLinkClick = (e) => {
         e.preventDefault()
-        const targetSectionId = e.target.getAttribute("href")
+        const targetSectionId = e.target.children[0].getAttribute("href")
         const targetSection = document.querySelector(targetSectionId)
         targetSection.scrollIntoView({ behavior: 'smooth' })
     }
@@ -55,7 +55,7 @@ export default function MyNav() {
             <ul>
                 {
                     ['About Me', 'Portfolio'].map((content, index) => {
-                        return <li key={index} className={(index + 1 === currentSection) ? styles.active : ''}> <a href={`#section${index+1}`} onClick={handleLinkClick}>{content}</a></li>
+                        return <li key={index} onClick={handleLinkClick} className={(index + 1 === currentSection) ? styles.active : ''}> <a href={`#section${index+1}`} >{content}</a></li>
                     })
                 }
                 {/* <li className={'active'}> <a href="#section1" onClick={handleLinkClick}>About Me {currentSection}</a> </li>
