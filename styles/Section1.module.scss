@@ -104,7 +104,8 @@
     animation-duration: 2s;
     transition: transform .5s ease-out;
     transform: rotate(0deg);
-    
+    clip-path: polygon(0 50%,0 100%, 100% 100%, 100% 50%);
+
     &::after {
         content: "";
         position: absolute;
@@ -114,13 +115,38 @@
         border-radius: 50%;
         background-color: $beige;
         z-index: 5;
-        pointer-events: none;
     }
 
-    &:hover{
+     &:hover{
         transform: rotate(-91deg);
+       // background-color: red;
+    } 
+}
+
+.cvContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 60px;
+    width: fit-content;
+    cursor: pointer;
+    .cvSvg{  
+        z-index:10;
+        height: 50%;
+        width: auto;
+        margin-right: 20px;
+        transition: all .5s ease-out;
+    }
+    p{
+        font-size: 20px;
+    }
+
+    &:hover .cvSvg{
+        transform: rotate(180deg) scale(1.5);
+        color: $accent-color;
     }
 }
+
 
 @keyframes animation-circle {
     0% {

@@ -25,6 +25,10 @@ $sect2Heigh: calc(200vh - 130px); // 2*(100vh - 65px) because 65px is the height
 }
 
 
+.cercleBeige, .cercleRouge{
+    clip-path: polygon(0 50%,0 0, 100% 0, 100% 50%);
+}
+
 .cercleRouge {
     position: relative;
     transform-origin: top center;
@@ -34,7 +38,6 @@ $sect2Heigh: calc(200vh - 130px); // 2*(100vh - 65px) because 65px is the height
     width: 200px;
     overflow: hidden;
     transition: transform 1s ease-out;
-    //transform: rotate(0deg);
     z-index: 5;
     &::after {
         content: "";
@@ -61,6 +64,7 @@ $sect2Heigh: calc(200vh - 130px); // 2*(100vh - 65px) because 65px is the height
     overflow: hidden;
     transition: transform 1s ease-out;
     z-index: 5;
+    clip-path: polygon(0 50%,0 0, 100% 0, 100% 50%);
     &::after {
         content: "";
         position: absolute;
