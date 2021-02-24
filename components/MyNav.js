@@ -42,8 +42,10 @@ export default function MyNav() {
     const handleLinkClick = (e) => {
         e.preventDefault()
         const targetSectionId = e.target.children[0].getAttribute("href")
-        const targetSection = document.querySelector(targetSectionId)
-        targetSection.scrollIntoView({ behavior: 'smooth' })
+        const targetSectionTop = document.querySelector(targetSectionId).offsetTop
+        const navbarHeight = document.getElementsByClassName(styles.navContainer)[0].offsetHeight
+        window.scroll({top: targetSectionTop - navbarHeight + 1, behavior: 'smooth'}); // because height of navbar is 65
+        //targetSection.scrollIntoView({ behavior: 'smooth' })
     }
 
     return (
