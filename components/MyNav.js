@@ -22,14 +22,17 @@ export default function MyNav() {
             else navElem.classList.remove(styles.active)
 
             const listOfSections = [...document.querySelectorAll('.section')]
+            // On veut que ca passe à la section suivante dans la nav quand on dépasse les 80% de la section
             const topValues = listOfSections.map((e) => e.offsetTop)
-            for (let i = 0; i < topValues.length - 1; i++) {
-                if (scrollY >= topValues[i] && scrollY < topValues[i + 1]) {
+            const heightValues = listOfSections.map((e) => e.offsetHeight)
+            const topScrollValues = topValues.map((e,i) => (e - 0.2 * heightValues[i]))
+            for (let i = 0; i < topScrollValues.length - 1; i++) {
+                if (scrollY >= topScrollValues[i] && scrollY < topScrollValues[i + 1]) {
                     setCurrentSection(i + 1)
                 }
             }
-            if (scrollY >= topValues[topValues.length - 1]) {
-                setCurrentSection(topValues.length)
+            if (scrollY >= topScrollValues[topScrollValues.length - 1]) {
+                setCurrentSection(topScrollValues.length)
             }
 
 
