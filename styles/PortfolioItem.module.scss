@@ -45,6 +45,10 @@
             filter: opacity(0.6);
         }
 
+        &.linkWebsite svg{
+            height: 50%;
+        }
+
        &:hover svg{
             filter: none;
        }

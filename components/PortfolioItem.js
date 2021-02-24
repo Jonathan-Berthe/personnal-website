@@ -3,6 +3,7 @@ import styles from '../styles/PortfolioItem.module.scss'
 import Image from 'next/image'
 
 import GitSVG from '../public/github.svg'
+import LinkSVG from '../public/link.svg'
 import YtSVG from '../public/yt.svg'
 
 export default function PortfolioItem({ data }) {
@@ -28,6 +29,17 @@ export default function PortfolioItem({ data }) {
             <div className={styles.spacer1}></div>
             <div className={styles.rowLogoContainer}>
                 <div className={styles.spacer8}></div>
+                {
+                    data.linkWebsite.length > 0 &&
+                    <>
+                        <div className={styles.spacer1}></div>
+                        <div className={styles.logo + ' ' + styles.linkWebsite} onClick={() => handleClick(data.linkWebsite)}>
+                            <LinkSVG />
+                        </div>
+                        <div className={styles.spacer1}></div>
+
+                    </>
+                }
                 {
                     data.linkGit.length > 0 &&
                     <>
