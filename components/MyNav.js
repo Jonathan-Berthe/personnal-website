@@ -18,7 +18,7 @@ export default function MyNav() {
         document.addEventListener('scroll', debounce(() => {
             const scrollY = window.scrollY
             const navElem = document.getElementsByClassName(styles.navContainer)[0]
-            if (scrollY > 10) navElem.classList.add(styles.active)
+            if (scrollY > 15) navElem.classList.add(styles.active)
             else navElem.classList.remove(styles.active)
 
             const listOfSections = [...document.querySelectorAll('.section')]
@@ -35,9 +35,7 @@ export default function MyNav() {
                 setCurrentSection(topScrollValues.length)
             }
 
-
-
-        }, 15, { leading: true, trailing: false }))
+        }, 10, { leading: true, trailing: false }))
     }, [])
 
 
@@ -55,7 +53,7 @@ export default function MyNav() {
             <ul>
                 {
                     ['About Me', 'Portfolio'].map((content, index) => {
-                        return <li key={index} onClick={handleLinkClick} className={(index + 1 === currentSection) ? styles.active : ''}> <a href={`#section${index+1}`} >{content}</a></li>
+                        return <li key={index} onClick={handleLinkClick} className={styles.navSection + ' ' + ((index + 1 === currentSection) ? styles.active : '')}> <a href={`#section${index+1}`} >{content}</a></li>
                     })
                 }
                 {/* <li className={'active'}> <a href="#section1" onClick={handleLinkClick}>About Me {currentSection}</a> </li>

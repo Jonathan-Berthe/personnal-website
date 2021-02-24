@@ -3,8 +3,8 @@ export default [
         type: 'Web',
         imageSrc: '/../public/benjamin.png',
         title: 'Challenge Benjamin Code',
-        linkYt: '',
-        linkGit: '',
+        linkYt: 'https://www.youtube.com/watch?v=vr0mCVDqDRo&feature=youtu.be',
+        linkGit: 'https://github.com/Jonathan-Berthe/Benjamin-code-challenge-exercice',
         descr: 'challenge of web integration from the youtuber Benjamin Code. 1'
     },
     {
@@ -13,13 +13,13 @@ export default [
         title: "A profesionnal climber's website clone",
         linkYt: 'https://www.youtube.com/watch?v=gvDUYCyTFbc&feature=youtu.be',
         linkGit: 'https://github.com/Jonathan-Berthe/pro-climber-website-clone',
-        descr: "clone of the home page of the pro climber Sébastien Berthe's website, who is my brother. The original website is made with a wordpress template and the use of plugins for the animations (scroll animations, buttons animations, navbar burger...)."
+        descr: "Clone of the home page of the pro climber Sébastien Berthe's website, who is my brother. The original website is made with a wordpress template and the use of plugins for the animations (scroll animations, buttons animations, navbar burger...)."
     },
     {
         type: 'Web',
         imageSrc: '/../public/mariage.png',
         title: 'A wedding website',
-        linkYt: '',
+        linkYt: 'https://www.youtube.com/watch?v=E0BXvAh6EHo&feature=youtu.be',
         linkGit: 'https://github.com/Jonathan-Berthe/mariage-antoine-madeline-2020',
         descr: 'Project of website for the wedding of friends Antoine and Madeline. I did this project on March 2020, in the very beginning of my front-end dev formation, so the website is not optimize at all. '
     },
