@@ -22,7 +22,7 @@
     li {
         @extend %flex-center;
         margin: 15px 10px;
-        padding: 0 5px;
+        padding: 0 15px;
         border-radius: 5%;
         min-width: 70px;
         cursor: pointer;
@@ -35,10 +35,10 @@
     }
 
     li.active{
-        background-color: green;
+        background-color: #679289;
     }
 
-    li:not(.logo, .contactMe)::before {
+    li:not(.logo, .contactMe, .active)::before {
         content: "";
         position: absolute;
         width: 100%;
@@ -50,7 +50,7 @@
         
     }
 
-    li:not(.logo, .contactMe):hover::before{
+    li:not(.logo, .contactMe, .active):hover::before{
         transform: translate(0, 15px);
         
     }
@@ -86,11 +86,19 @@
 }
 
 .navContainer.active{
-    background-color: #f1f1f1;
+    background-color: $text-primary-color;
     a{
         color: $text-accent-color;
     }
-    
+
+    li.active{
+        //background-color: rgb(143, 143, 143);
+    }
+
+    li:not(.logo, .contactMe)::before {
+        background-color: $text-accent-color;      
+    }
+
     .svg{
         filter: opacity(0.8);
         path{
