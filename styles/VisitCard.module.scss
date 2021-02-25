@@ -1,0 +1,64 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+$cardHeight: 150px;
+$cardWidth: 350px;
+$infoWidth: $cardWidth - ($cardHeight/2);
+
+.cardContainer {
+    width: $cardWidth;
+    height: $cardHeight;
+    background: rgb(241, 241, 241);
+    background: linear-gradient(90deg, rgba(244, 192, 149, 1) 100%, rgba(241, 241, 241, 1) 0%);
+    margin: 40px 0;
+    border-radius: 0 15px 15px 0;
+    position: relative;
+
+    .imgContainer {
+        height: $cardHeight;
+        width: $cardHeight;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translateX(-50%);
+        @extend %flex-center;
+        position: relative;
+    }
+
+    .infosContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        height: 100%;
+        width: $infoWidth;
+        top: 0;
+        left: ($cardHeight / 2) + 10px;
+        //background-color: green;
+
+        color: $text-accent-color;
+        padding: 10px 5px;
+        font-size: 14px;
+
+        .info{
+            display: flex;
+            align-items: center;
+            margin: 2px 0;
+            svg{
+                path{
+                    fill: $text-accent-color; 
+                }
+                height: 12px;
+                width: auto;
+                margin-right: 10px;
+            }
+        }
+
+        .name{
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+    }
+}

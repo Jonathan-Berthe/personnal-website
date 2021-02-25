@@ -1,11 +1,12 @@
 import styles from '../styles/SectionContact.module.scss'
 
-import { Controller, Scene } from "react-scrollmagic";
-import { Tween } from "react-gsap";
+import { Controller, Scene } from "react-scrollmagic"
+import { Tween } from "react-gsap"
 
-import emailjs from 'emailjs-com';
-import { useEffect, useState } from 'react';
-import ReactLoading from 'react-loading';
+import emailjs from 'emailjs-com'
+import { useEffect, useState } from 'react'
+import ReactLoading from 'react-loading'
+import VisitCard from './VisitCard'
 
 
 export default function SectionContact() {
@@ -41,7 +42,7 @@ export default function SectionContact() {
                 setIsLoading(false)
                 setAlreadySent(true)
                 resetForm()
-            }, function (error) {
+            }, function () {
                 alert('An error occured')
                 resetForm()
             })
@@ -71,7 +72,7 @@ export default function SectionContact() {
                     </Tween>
                 </Scene>
             </Controller> */}
-
+            <VisitCard />
             <form onSubmit={handleSubmit} id="contact-form" className={styles.contactForm}>
                 <h3>Contact form</h3>
                 <input value={emailState.name} onChange={handleChange} placeholder="Name" required type="text" name="name" />

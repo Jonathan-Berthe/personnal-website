@@ -18,7 +18,7 @@ $sectHeigh: calc(100vh - 65px);
     height: 80%;
     width: 70%;
     color: $text-primary-color;
-
+    margin-bottom: 25px;
     h3 {
         align-self: flex-start;
         margin-bottom: 15px;
@@ -31,6 +31,7 @@ $sectHeigh: calc(100vh - 65px);
         margin: 5px 0;
         padding: 10px 5px;
         background-color: $text-primary-color;
+        border:none;
         border-radius: 10px;
         font-size: 15px;
         &:focus {
@@ -48,6 +49,7 @@ $sectHeigh: calc(100vh - 65px);
 
     textarea {
         flex-grow: 1;
+        resize: none;
     }
 }
 
