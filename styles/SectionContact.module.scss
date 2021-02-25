@@ -18,15 +18,15 @@ $sectHeigh: calc(100vh - 65px);
     height: 80%;
     width: 70%;
     color: $text-primary-color;
-    h3 {       
+
+    h3 {
         align-self: flex-start;
         margin-bottom: 15px;
-        font-weight: 600;  
+        font-weight: 600;
     }
 
     input,
-    textarea,
-    button {
+    textarea {
         width: 100%;
         margin: 5px 0;
         padding: 10px 5px;
@@ -38,19 +38,25 @@ $sectHeigh: calc(100vh - 65px);
         }
     }
 
-    input:not(.submitButton) {
+    input {
         height: 40px;
     }
 
-    input[type="hidden"]{
+    input[type="hidden"] {
         display: none;
     }
 
     textarea {
         flex-grow: 1;
     }
+}
 
-    .submitButton{
+.submitContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .submitButton {
         background-color: $accent-color;
         outline: none;
         color: $text-accent-color;
@@ -60,13 +66,32 @@ $sectHeigh: calc(100vh - 65px);
         border: none;
         cursor: pointer;
         transition: all .2s ease-out;
-        &:hover{
+        &:hover {
             opacity: 0.8;
         }
     }
-    
+
+    .loader {
+        align-self: flex-start;
+        margin: 5px 0;
+        border: 9px solid #f3f3f3; /* Light grey */
+        border-top: 9px solid $accent-color; 
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 2s linear infinite;
+    }
+
+    p{
+        margin-left: 15px;
+    }
 }
 
-
-
-
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

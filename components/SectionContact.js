@@ -19,16 +19,13 @@ export default function SectionContact() {
 
     const [isLoading, setIsLoading] = useState(false)
 
-  /*   useEffect(() => {
-        emailjs.init("user_BMQas2FYwRDDgZqY0xDUf");
-    }, []) */
-
+    const [alreadySent, setAlreadySent] = useState(false)
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-       const { name, email, subject, message } = emailState
+
+        const { name, email, subject, message } = emailState
 
         let templateParams = {
             from_name: name,
@@ -38,17 +35,16 @@ export default function SectionContact() {
             message: message,
         }
         setIsLoading(true)
-        // these IDs from the previous steps
+        setAlreadySent(false)
         emailjs.send('service_ofel1im', 'template_37yahfr', templateParams, 'user_BMQas2FYwRDDgZqY0xDUf')
             .then(function () {
-                console.log('SUCCESS!')
-                alert('email sent !')
                 setIsLoading(false)
+                setAlreadySent(true)
+                resetForm()
             }, function (error) {
-                console.log('FAILED...', error)
-            }) 
-        
-        resetForm()
+                alert('An error occured')
+                resetForm()
+            })
 
     }
 
@@ -61,9 +57,9 @@ export default function SectionContact() {
         })
     }
 
-    const handleChange = ( event ) => {
+    const handleChange = (event) => {
         const { name, value } = event.target
-        setEmailState({...emailState, [name]: value })
+        setEmailState({ ...emailState, [name]: value })
     }
 
     return (
@@ -76,7 +72,7 @@ export default function SectionContact() {
                 </Scene>
             </Controller> */}
 
-            <form id="contact-form"  className={styles.contactForm}>
+            <form onSubmit={handleSubmit} id="contact-form" className={styles.contactForm}>
                 <h3>Contact form</h3>
                 <input value={emailState.name} onChange={handleChange} placeholder="Name" required type="text" name="name" />
 
@@ -85,11 +81,14 @@ export default function SectionContact() {
                 <input value={emailState.subject} onChange={handleChange} placeholder="Subject" required type="text" name="subject" />
 
                 <textarea value={emailState.message} onChange={handleChange} placeholder="Message" required name="message"></textarea>
+                <div className={styles.submitContainer}>
+                    {isLoading ? <div className={styles.loader}></div> : <input type='submit' className={styles.submitButton} value="Send" />}
+                    {alreadySent && <p>You're already sent an email </p>}
+                </div>
 
-                { <button onClick={handleSubmit} className={styles.submitButton}>{isLoading ? 'Sending...' : 'Send'}</button> }
 
             </form>
-            
+
         </section>
     )
 }
