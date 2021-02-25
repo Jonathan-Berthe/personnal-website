@@ -1,0 +1,72 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+$sectHeigh: calc(100vh - 65px);
+
+.sectionContact {
+    background-color: $dark-primary-color;
+    height: $sectHeigh;
+    position: relative;
+    @extend %flex-center;
+    flex-direction: column;
+}
+
+.contactForm {
+    @extend %flex-center;
+    flex-direction: column;
+    height: 80%;
+    width: 70%;
+    color: $text-primary-color;
+    h3 {       
+        align-self: flex-start;
+        margin-bottom: 15px;
+        font-weight: 600;  
+    }
+
+    input,
+    textarea,
+    button {
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px 5px;
+        background-color: $text-primary-color;
+        border-radius: 10px;
+        font-size: 15px;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    input:not(.submitButton) {
+        height: 40px;
+    }
+
+    input[type="hidden"]{
+        display: none;
+    }
+
+    textarea {
+        flex-grow: 1;
+    }
+
+    .submitButton{
+        background-color: $accent-color;
+        outline: none;
+        color: $text-accent-color;
+        max-width: 100px;
+        align-self: flex-start;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all .2s ease-out;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    
+}
+
+
+
+

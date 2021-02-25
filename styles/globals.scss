@@ -1,12 +1,12 @@
-@import './_reset.scss';
-@import './_variables.scss';
+@import "./_reset.scss";
+@import "./_variables.scss";
 
 body {
   overflow-x: hidden;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-.section{
+.section {
   width: 100vw;
 }
 
@@ -20,6 +20,10 @@ h2 {
   margin-top: 10px;
 }
 
-a{
+h3 {
+  font-size: 25px;
+}
+
+a {
   text-decoration: none;
 }

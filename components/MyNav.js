@@ -67,7 +67,7 @@ export default function MyNav() {
                 <li className={styles.logo}>
                     <a href="https://www.linkedin.com/in/jonathan-berthe-1a3aa294" target="_blank"> <LinkedinSVG className={styles.svg} /> </a>
                 </li>
-                <li className={styles.contactMe}><a href="mailto:nullepart@mozilla.org">Contact me</a></li>
+                <li className={styles.navSection + ' ' + styles.contactMe + ' ' + ((currentSection === 3) ? styles.active : '')} onClick={handleLinkClick}><a href="#section3">Contact me</a></li>
             </ul>
             <div className={styles.spacer1}></div>
         </nav>
