@@ -2,22 +2,23 @@
 @import "./_placeholders.scss";
 @import "./utils";
 
-$cardHeight: 150px;
-$cardWidth: 350px;
-$infoWidth: $cardWidth - ($cardHeight/2);
+
+$infoWidth: $visitCardWidth - ($visitCardHeight/2);
 
 .cardContainer {
-    width: $cardWidth;
-    height: $cardHeight;
+    width: $visitCardWidth;
+    height: $visitCardHeight;
     background: rgb(241, 241, 241);
     background: linear-gradient(90deg, rgba(244, 192, 149, 1) 100%, rgba(241, 241, 241, 1) 0%);
-    margin: 40px 0;
+    margin: $visitCardMarginVert 0;
     border-radius: 0 15px 15px 0;
     position: relative;
 
+    transition: transform 1s ease-out;
+
     .imgContainer {
-        height: $cardHeight;
-        width: $cardHeight;
+        height: $visitCardHeight;
+        width: $visitCardHeight;
         border-radius: 50%;
         overflow: hidden;
         transform: translateX(-50%);
@@ -33,8 +34,7 @@ $infoWidth: $cardWidth - ($cardHeight/2);
         height: 100%;
         width: $infoWidth;
         top: 0;
-        left: ($cardHeight / 2) + 10px;
-        //background-color: green;
+        left: ($visitCardHeight / 2) + 10px;
 
         color: $text-accent-color;
         padding: 10px 5px;

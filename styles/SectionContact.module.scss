@@ -3,6 +3,8 @@
 @import "./utils";
 
 $sectHeigh: calc(100vh - 65px);
+$marginBottom: 25px;
+$formHeight: calc(#{$sectHeigh} - #{$visitCardHeight} - 2 * #{$visitCardMarginVert} - #{$marginBottom});
 
 .sectionContact {
     background-color: $dark-primary-color;
@@ -10,15 +12,20 @@ $sectHeigh: calc(100vh - 65px);
     position: relative;
     @extend %flex-center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .contactForm {
-    @extend %flex-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    height: 80%;
-    width: 70%;
+    height: $formHeight;
+    width: 70vw;
     color: $text-primary-color;
-    margin-bottom: 25px;
+    margin-bottom: $marginBottom;
+    transition: transform 1s ease-out;
+
     h3 {
         align-self: flex-start;
         margin-bottom: 15px;
@@ -31,7 +38,7 @@ $sectHeigh: calc(100vh - 65px);
         margin: 5px 0;
         padding: 10px 5px;
         background-color: $text-primary-color;
-        border:none;
+        border: none;
         border-radius: 10px;
         font-size: 15px;
         &:focus {
@@ -67,7 +74,7 @@ $sectHeigh: calc(100vh - 65px);
         font-weight: 600;
         border: none;
         cursor: pointer;
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
         &:hover {
             opacity: 0.8;
         }
@@ -77,16 +84,38 @@ $sectHeigh: calc(100vh - 65px);
         align-self: flex-start;
         margin: 5px 0;
         border: 9px solid #f3f3f3; /* Light grey */
-        border-top: 9px solid $accent-color; 
+        border-top: 9px solid $accent-color;
         border-radius: 50%;
         width: 40px;
         height: 40px;
         animation: spin 2s linear infinite;
     }
 
-    p{
+    p {
         margin-left: 15px;
     }
+}
+
+.circleRed {
+    position: absolute;
+    top: -45px;
+    left: 80%;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: $accent-color;
+    z-index: -1;
+}
+
+.circleBeige {
+    position: absolute;
+    top: 175px;
+    left: 100%;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: $beige;
+    z-index: -1;
 }
 
 @keyframes spin {

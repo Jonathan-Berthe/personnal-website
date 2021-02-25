@@ -5,11 +5,19 @@ import { Tween } from "react-gsap"
 
 import emailjs from 'emailjs-com'
 import { useEffect, useState } from 'react'
-import ReactLoading from 'react-loading'
 import VisitCard from './VisitCard'
 
 
 export default function SectionContact() {
+
+
+    useEffect(() => {
+        document.getElementsByClassName(styles.sectionContact)[0].onmousemove = event => {
+            const posRelX = event.clientX / window.innerWidth
+            document.getElementsByClassName(styles.circleRed)[0].style.transform = `translateX(-${posRelX * 10}%)`
+            document.getElementsByClassName(styles.circleBeige)[0].style.transform = `translateX(${posRelX * 30}%)`
+        }
+    }, [])
 
     const [emailState, setEmailState] = useState({
         name: '',
@@ -65,31 +73,36 @@ export default function SectionContact() {
 
     return (
         <section className={styles.sectionContact + ' section'} id='section3'>
-            {/* <Controller>
-                <Scene triggerHook={0.85} duration={0}>
-                    <Tween from={{ rotation: -180.0001 }} to={{ rotation: 0 }}>
-                        <div className={styles.cercleRouge}></div>
+
+            <VisitCard />
+
+            <Controller>
+                <Scene triggerHook={0.65} duration={0} reverse={false}>
+                    <Tween from={{ y: -500, scale: 0 }} to={{ y: 0, scale: 1 }}>
+                        <form onSubmit={handleSubmit} id="contact-form" className={styles.contactForm}>
+                            <h3>Contact Me</h3>
+                            <input value={emailState.name} onChange={handleChange} placeholder="Name" required type="text" name="name" />
+
+                            <input value={emailState.email} onChange={handleChange} placeholder="E-Mail" required type="email" name="email" />
+
+                            <input value={emailState.subject} onChange={handleChange} placeholder="Subject" required type="text" name="subject" />
+
+                            <textarea value={emailState.message} onChange={handleChange} placeholder="Message" required name="message"></textarea>
+                            <div className={styles.submitContainer}>
+                                {isLoading ? <div className={styles.loader}></div> : <input type='submit' className={styles.submitButton} value="Send" />}
+                                {alreadySent && <p>You're already sent an email </p>}
+                            </div>
+                            <div className={styles.circleRed}></div>
+                            <div className={styles.circleBeige}></div>
+                        </form>
+
                     </Tween>
                 </Scene>
-            </Controller> */}
-            <VisitCard />
-            <form onSubmit={handleSubmit} id="contact-form" className={styles.contactForm}>
-                <h3>Contact form</h3>
-                <input value={emailState.name} onChange={handleChange} placeholder="Name" required type="text" name="name" />
+            </Controller>
 
-                <input value={emailState.email} onChange={handleChange} placeholder="E-Mail" required type="email" name="email" />
-
-                <input value={emailState.subject} onChange={handleChange} placeholder="Subject" required type="text" name="subject" />
-
-                <textarea value={emailState.message} onChange={handleChange} placeholder="Message" required name="message"></textarea>
-                <div className={styles.submitContainer}>
-                    {isLoading ? <div className={styles.loader}></div> : <input type='submit' className={styles.submitButton} value="Send" />}
-                    {alreadySent && <p>You're already sent an email </p>}
-                </div>
-
-
-            </form>
 
         </section>
+
+
     )
 }
