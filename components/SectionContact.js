@@ -90,7 +90,7 @@ export default function SectionContact() {
                             <textarea value={emailState.message} onChange={handleChange} placeholder="Message" required name="message"></textarea>
                             <div className={styles.submitContainer}>
                                 {isLoading ? <div className={styles.loader}></div> : <input type='submit' className={styles.submitButton} value="Send" />}
-                                {alreadySent && <p>You're already sent an email </p>}
+                                {alreadySent && <p>You already sent an email </p>}
                             </div>
                             <div className={styles.circleRed}></div>
                             <div className={styles.circleBeige}></div>
