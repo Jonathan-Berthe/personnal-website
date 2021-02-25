@@ -1,0 +1,12 @@
+@import "./_variables.scss";
+@import "./_placeholders.scss";
+@import "./utils";
+
+.footer{
+    height: 40px;
+    background-color: #111;
+    color: $text-primary-color;
+    text-align: center;
+    font-size: 14px;
+    @extend %flex-center;
+}

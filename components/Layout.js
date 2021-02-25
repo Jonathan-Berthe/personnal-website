@@ -15,6 +15,7 @@ export default function Layout({ children }) {
                 {children}
             </main>
             <footer className={styles.footer}>
+                <p>© Copyright - Jonathan Berthe - 2021</p>
             </footer>
 
         </div>

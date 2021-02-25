@@ -61,13 +61,14 @@ export default function MyNav() {
                 {/* <li className={'active'}> <a href="#section1" onClick={handleLinkClick}>About Me {currentSection}</a> </li>
                 <li> <a href="#section2" onClick={handleLinkClick}>Portfolio</a></li> */}
 
+                
+                <li className={styles.navSection + ' ' + styles.contactMe + ' ' + ((currentSection === 3) ? styles.active : '')} onClick={handleLinkClick}><a href="#section3">Contact me</a></li>
                 <li className={styles.logo}>
                     <a href="https://www.github.com/Jonathan-Berthe/" target="_blank"> <GitSVG className={styles.svg} /> </a>
                 </li>
                 <li className={styles.logo}>
                     <a href="https://www.linkedin.com/in/jonathan-berthe-1a3aa294" target="_blank"> <LinkedinSVG className={styles.svg} /> </a>
                 </li>
-                <li className={styles.navSection + ' ' + styles.contactMe + ' ' + ((currentSection === 3) ? styles.active : '')} onClick={handleLinkClick}><a href="#section3">Contact me</a></li>
             </ul>
             <div className={styles.spacer1}></div>
         </nav>
