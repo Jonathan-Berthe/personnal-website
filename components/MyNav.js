@@ -12,8 +12,6 @@ import DownSvg from '../public/chevron-down.svg'
 export default function MyNav() {
 
     const [currentSection, setCurrentSection] = useState(1)
-    /* const sectionRef = createRef(); // Pour avoir accès a la variable mis a jour depuis useEffect
-    sectionRef.current = currentSection; */
 
     useEffect(() => {
         document.addEventListener('scroll', debounce(() => {
@@ -39,15 +37,21 @@ export default function MyNav() {
         }, 10, { leading: true, trailing: false }))
     }, [])
 
-
     const handleLinkClick = (e) => {
         e.preventDefault()
         const targetSectionId = e.target.children[0].getAttribute("href")
         toSectionId(targetSectionId)
-        /* const targetSectionTop = document.querySelector(targetSectionId).offsetTop
+    }
+
+    const handleDownClick = () => {
+        const currentSectionTop = document.querySelector(`#section${currentSection}`).offsetTop
+        const currentSectionHeight = document.querySelector(`#section${currentSection}`).offsetHeight
         const navbarHeight = document.getElementsByClassName(styles.navContainer)[0].offsetHeight
-        window.scroll({ top: targetSectionTop - navbarHeight + 1, behavior: 'smooth' }); */ // because height of navbar is 65
-        //targetSection.scrollIntoView({ behavior: 'smooth' })
+        if (currentSection === 2 && window.scrollY < (currentSectionTop - navbarHeight + 1 + currentSectionHeight * 0.4)) {
+            window.scroll({ top: currentSectionTop - navbarHeight + 1 + currentSectionHeight / 2, behavior: 'smooth' });
+            return
+        }
+        toSectionId(`#section${currentSection + 1}`)
     }
 
     const toSectionId = targetSectionId => {
@@ -85,16 +89,7 @@ export default function MyNav() {
             <div className={styles.topArrow} onClick={handleLinkClick}>
                 <a href="#section1" target="_blank"> <UpSvg className={styles.svg} /> </a>
             </div>
-            {currentSection < 3 && <div className={styles.downArrow} onClick={() => {
-                const targetSectionTop = document.querySelector(`#section${currentSection}`).offsetTop
-                const targetSectionHeight = document.querySelector(`#section${currentSection}`).offsetHeight
-                const navbarHeight = document.getElementsByClassName(styles.navContainer)[0].offsetHeight
-                if (currentSection === 2 && window.scrollY < (targetSectionTop - navbarHeight + 1 + targetSectionHeight * 0.4)) {
-                    window.scroll({ top: targetSectionTop - navbarHeight + 1 + targetSectionHeight / 2, behavior: 'smooth' });
-                    return
-                }
-                toSectionId(`#section${currentSection + 1}`)
-            }}>
+            {currentSection < 3 && <div className={styles.downArrow} onClick={handleDownClick}>
                 <DownSvg className={styles.svg} />
             </div>}
         </>

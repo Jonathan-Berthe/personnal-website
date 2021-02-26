@@ -9,7 +9,23 @@ $text-accent-color: #212121;
 
 $beige: #F4C095;
 
+
+// Responsive
+$xxLarge: 1500px;
+$xLarge: 1200px;
+$large: 992px;
+$medium: 768px;
+$small: 576px;
+$xSmall: 480px;
+$large-down: "only screen and (max-width: #{$large})";
+$medium-down: "only screen and (max-width: #{$medium})";
+$small-down: "only screen and (max-width: #{$small})";
+$xSmall-down: "only screen and (max-width: #{$xSmall})";
+
+$xLarge-up: "only screen and (min-width: #{$xLarge})";
+$xxLarge-up: "only screen and (min-width: #{$xxLarge})";
+
 // Visit card
-$visitCardHeight: 160px;
-$visitCardWidth: 350px;
-$visitCardMarginVert: 40px;
+$visitCardHeight: 16rem;
+$visitCardWidth: 35rem;
+$visitCardMarginVert: 4rem;

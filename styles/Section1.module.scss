@@ -5,16 +5,43 @@
 .section1 {
     background-color: $dark-primary-color;
     height: 100vh;
+    min-height: 600px;
+    position: relative;
+
+    @media #{$medium-down} {
+        min-height: 670px;
+    }
 }
 
 .section1Content {
-    @extend %flex-center;
+    // To center elements in Y
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+
+    @extend %flex-center;
     width: 100vw;
-    padding-left: 45px;
+    max-width: 100%;
+    margin-left: 4.5rem;
     color: $text-primary-color;
+
+    @media #{$large-down} {
+        flex-direction: column-reverse;
+        margin-left: 0;
+        padding: 0 5vw;
+        top: 55%;
+
+        @media only screen and (max-height: 600px){
+            top: 100%;
+            transform: translateY(-120%);
+        }
+    }
+
+    @media #{$xSmall-down} {
+        text-align: center;
+    }
+
+    
 }
 
 .titleContainer {
@@ -24,6 +51,22 @@
     z-index: -3;
     animation-name: animation-text;
     animation-duration: 2s;
+
+    @media #{$large-down} {
+        margin-top: 85px;
+    }
+
+    @media #{$medium-down} {
+        margin-top: 100px;
+    }
+
+    @media #{$small-down} {
+        h1{
+            margin-bottom: 10px;
+        }
+        
+    }
+    
 }
 
 .portraitContainer {
@@ -33,8 +76,10 @@
     animation-duration: 2s;
     .imgContainer {
         @extend %flex-center;
-        width: 250px;
-        height: 250px;
+        min-width: 200px;
+        min-height: 200px;
+        width: 25rem;
+        height: 25rem;
         border-radius: 5%;
         overflow: hidden;
         position: relative;
@@ -47,8 +92,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 250px;
-        height: 250px;
+        min-width: 200px;
+        min-height: 200px;
+        width: 25rem;
+        height: 25rem;
         border-radius: 5%;
         transition: transform 1s ease-out;
     }
@@ -81,14 +128,47 @@
         .decoContainer2 {
             transform: translate(-35%, 35%);
         }
+    }
 
-        /* .decoContainer2 {
-      background-color: $beige;
-      left: -5%;
-      top: 5%;
-      z-index: -2;
-      overflow: hidden;
-    } */
+    // The image is open < medium screen
+    @media #{$medium-down} {
+        .imgContainer {
+            transform: scale(1.2);
+        }
+
+        .decoContainer1 {
+            transform: translate(35%, -35%);
+        }
+
+        .decoContainer2 {
+            transform: translate(-35%, 35%);
+        }
+    }
+
+    @media #{$xSmall-down} {
+        .imgContainer {
+            min-width: 150px;
+            min-height: 150px;
+        }
+        .decoContainer {
+            min-width: 150px;
+            min-height: 150px;
+        }
+    }
+
+    @media #{$xLarge-up} {
+        .imgContainer {
+            min-width: 300px;
+            min-height: 300px;
+        }
+        .decoContainer {
+            min-width: 300px;
+            min-height: 300px;
+        }
+    }
+
+    @media #{$xxLarge-up} {
+        transform: translateX(-100px);
     }
 }
 
@@ -102,9 +182,9 @@
     overflow: hidden;
     animation-name: animation-circle;
     animation-duration: 2s;
-    transition: transform .5s ease-out;
+    transition: transform 0.5s ease-out;
     transform: rotate(0deg);
-    clip-path: polygon(0 50%,0 100%, 100% 100%, 100% 50%);
+    clip-path: polygon(0 50%, 0 100%, 100% 100%, 100% 50%);
 
     &::after {
         content: "";
@@ -114,39 +194,54 @@
         width: 300px;
         border-radius: 50%;
         background-color: $beige;
-        z-index: 5;
+        z-index: 1;
     }
 
-     &:hover{
+    &:hover {
         transform: rotate(-91deg);
-       // background-color: red;
-    } 
+    }
+
+    @media #{$medium-down} {
+        pointer-events: none;
+        height: 200px;
+        width: 200px;
+        top: calc(100% - 200px);
+        left: -100px;
+        &::after {
+            height: 200px;
+            width: 200px;
+        }
+    }
 }
 
-.cvContainer{
+.cvContainer {
     display: flex;
     align-items: center;
     position: relative;
-    height: 60px;
+    height: 6rem;
     width: fit-content;
     cursor: pointer;
-    .cvSvg{  
-        z-index:10;
+    .cvSvg {
+        z-index: 10;
         height: 50%;
         width: auto;
-        margin-right: 20px;
-        transition: all .5s ease-out;
+        margin-right: 2rem;
+        transition: all 0.5s ease-out;
     }
-    p{
-        font-size: 20px;
+    p {
+        font-size: 2rem;
     }
 
-    &:hover .cvSvg{
+    &:hover .cvSvg {
         transform: rotate(180deg) scale(1.5);
         color: $accent-color;
     }
-}
 
+    @media #{$xSmall-down} {
+        width: auto;
+        justify-content: center;
+    }
+}
 
 @keyframes animation-circle {
     0% {
@@ -159,18 +254,19 @@
 
 @keyframes animation-portrait {
     0% {
-        transform: translate(1000px,-300px) rotate(90deg);
+        transform: translate(100rem, -30rem) rotate(90deg);
     }
     100% {
-        transform: translate(0,0) rotate(0);
+        transform: translate(0, 0) rotate(0);
     }
 }
 
 @keyframes animation-text {
     0% {
-        transform: translate(-1000px,-300px) rotate(-90deg);
+        transform: translate(-100rem, -30rem) rotate(-90deg);
     }
     100% {
-        transform: translate(0,0) rotate(0);
+        transform: translate(0, 0) rotate(0);
     }
 }
+

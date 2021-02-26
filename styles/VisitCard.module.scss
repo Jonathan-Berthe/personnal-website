@@ -34,7 +34,7 @@ $infoWidth: $visitCardWidth - ($visitCardHeight/2);
         height: 100%;
         width: $infoWidth;
         top: 0;
-        left: ($visitCardHeight / 2) + 10px;
+        left: calc((#{$visitCardHeight} / 2) + 10px);
 
         color: $text-accent-color;
         padding: 10px 5px;
