@@ -9,6 +9,10 @@ $sect2Heigh: calc(200vh - 130px); // 2*(100vh - 65px) because 65px is the height
     height:  $sect2Heigh;
     overflow: hidden;
     position: relative;
+
+    @media #{$medium-down-small-height} {
+        min-height:  1500px;
+    }
 }
 
 .portfoliosContainer {

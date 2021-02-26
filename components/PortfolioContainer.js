@@ -65,7 +65,7 @@ export default function PortfolioContainer({ title }) {
         <Controller >
             <Scene triggerHook={0.5} duration={0} reverse={false}>
                 <Tween from={{ x: title === 'Web' ? -1500 : 1500 }} to={{ x: 0 }}>
-                    <div className={`${styles.portfolioContainer}`}>
+                    <div className={styles.portfolioContainer + ' ' + (title === 'Web' ? styles.web : styles.app)}>
                         <div className={styles.spacer1}></div>
                         {title === 'Web' && (
                             <>
