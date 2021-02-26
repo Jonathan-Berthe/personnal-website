@@ -11,7 +11,7 @@ $infoWidth: $visitCardWidth - ($visitCardHeight/2);
     background: rgb(241, 241, 241);
     background: linear-gradient(90deg, rgba(244, 192, 149, 1) 100%, rgba(241, 241, 241, 1) 0%);
     margin: $visitCardMarginVert 0;
-    border-radius: 0 15px 15px 0;
+    border-radius: 0 1.5rem 1.5px 0;
     position: relative;
 
     transition: transform 1s ease-out;
@@ -34,31 +34,31 @@ $infoWidth: $visitCardWidth - ($visitCardHeight/2);
         height: 100%;
         width: $infoWidth;
         top: 0;
-        left: calc((#{$visitCardHeight} / 2) + 10px);
+        left: calc((#{$visitCardHeight} / 2) + 1rem);
 
         color: $text-accent-color;
-        padding: 10px 5px;
-        font-size: 14px;
+        padding: 1rem .5rem;
+        font-size: 1.4rem;
 
         .info{
             display: flex;
             align-items: center;
-            margin: 2px 0;
+            margin: .2rem 0;
             svg{
                 path{
                     fill: $text-accent-color; 
                 }
-                height: 12px;
+                height: 1.2rem;
                 width: auto;
-                margin-right: 10px;
+                margin-right: 1rem;
             }
         }
 
         .name{
             text-transform: uppercase;
             font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 3px;
+            font-size: 1.8rem;
+            margin-bottom: .3rem;
         }
     }
 }
