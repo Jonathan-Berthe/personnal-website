@@ -30,6 +30,11 @@ export default function VisitCard() {
                                 <p>Jonathan Berthe</p>
                             </div>
                             <div className={styles.spacer1}></div>
+                            <div className={styles.phone + ' ' + styles.info}>
+                                <PhoneSVG />
+                                <p>+32478178683</p>
+                            </div>
+                            <div className={styles.spacer1}></div>
                             <div className={styles.email + ' ' + styles.info}>
                                 <MailSVG />
                                 <p>jonath.berthe@gmail.com</p>
@@ -44,11 +49,7 @@ export default function VisitCard() {
                                 </div>
 
                             </div>
-                            <div className={styles.spacer1}></div>
-                            <div className={styles.phone + ' ' + styles.info}>
-                                <PhoneSVG />
-                                <p>+32478178683</p>
-                            </div>
+                            
                             <div className={styles.spacer3}></div>
                         </div>
                     </div>
