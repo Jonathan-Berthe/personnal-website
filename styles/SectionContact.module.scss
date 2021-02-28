@@ -2,7 +2,7 @@
 @import "./_placeholders.scss";
 @import "./utils";
 
-$sectHeigh: calc(100vh - 65px);
+$sectHeigh: calc(100vh - #{$navHeight});
 $marginBottom: 25px;
 $formHeight: calc(#{$sectHeigh} - #{$visitCardHeight} - 2 * #{$visitCardMarginVert} - #{$marginBottom});
 

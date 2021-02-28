@@ -3,7 +3,7 @@
 @import "./utils";
 
 .portfolioContainer {
-    height: calc(100vh - 65px); // 65px is the height of the fixed navbar
+    height: calc(100vh - #{$navHeight}); 
     width: 80vw;
     min-width: 350px;
     transition: transform 1.5s ease-out;

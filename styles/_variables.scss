@@ -31,3 +31,8 @@ $medium-down-small-height: "only screen and (max-width: #{$medium}), screen and 
 $visitCardHeight: 16rem;
 $visitCardWidth: 35rem;
 $visitCardMarginVert: 4rem;
+
+// Nav
+
+$maxReductFactor: 50 / 65;
+$navHeight: max(6.5rem, calc(65px * #{$maxReductFactor}) ); 
