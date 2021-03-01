@@ -63,7 +63,7 @@
     .logo {
         pointer-events: all !important;
         height: 5rem;
-        min-height: 45px;
+        min-height: 40px;
         @extend %flex-center;
         
         svg {
