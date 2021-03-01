@@ -23,7 +23,14 @@
         } 
         .projectsContainer{
             width: 55%;
-            min-height: 58rem;
+            min-height: 50rem;//58rem;
+        }
+    }
+
+    @media #{$xSmall-down} {
+        
+        .projectsContainer{
+            min-height: 43rem;//58rem;
         }
     }
 }
