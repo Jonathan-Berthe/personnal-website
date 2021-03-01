@@ -13,7 +13,7 @@
     
 
     .image{
-        pointer-events: all;
+        pointer-events: all !important;
         &:hover {
             opacity: 0.7;
         }
@@ -61,7 +61,7 @@
     @extend %flex-center;
     position: relative;
     .logo {
-        pointer-events: all;
+        pointer-events: all !important;
         height: 5rem;
         @extend %flex-center;
         
