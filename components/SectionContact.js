@@ -2,8 +2,9 @@ import styles from '../styles/SectionContact.module.scss'
 
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
-
 import emailjs from 'emailjs-com'
+import axios from 'axios'
+
 import { useEffect, useState } from 'react'
 import VisitCard from './VisitCard'
 
@@ -31,7 +32,7 @@ export default function SectionContact() {
     const [alreadySent, setAlreadySent] = useState(false)
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const { name, email, subject, message } = emailState
@@ -45,7 +46,11 @@ export default function SectionContact() {
         }
         setIsLoading(true)
         setAlreadySent(false)
-        emailjs.send('service_ofel1im', 'template_37yahfr', templateParams, 'user_BMQas2FYwRDDgZqY0xDUf')
+
+        const res = await fetch(`/api/emailJsAccess`)
+        const api = await res.json()
+
+        emailjs.send(api.service, api.template, templateParams, api.key)
             .then(function () {
                 setIsLoading(false)
                 setAlreadySent(true)
@@ -54,7 +59,6 @@ export default function SectionContact() {
                 alert('An error occured')
                 resetForm()
             })
-
     }
 
     const resetForm = () => {

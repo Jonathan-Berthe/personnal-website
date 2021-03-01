@@ -14,6 +14,9 @@ export default function Section1() {
         <div className={styles.titleContainer}>
           <h1>Jonathan Berthe</h1>
           <h2>Front-end developer &amp; Engineer</h2>
+          <p className={styles.description}>
+            I'm a junior front-end developer looking for new opportunities in Web devlopement (especially with React, but not only) and/or cross-platform mobile development with Flutter !
+          </p>
           <div className={styles.cvContainer} onClick={handleClick}>
             <LinkSVG className={styles.cvSvg}>
 
@@ -27,7 +30,7 @@ export default function Section1() {
         <div className={styles.portraitContainer}>
           <div className={styles.imgContainer}>
             <Image
-              src="/me.jpg"
+              src="/images/me.jpg"
               alt="Picture of the author"
               layout='fill'
               objectFit='cover'
@@ -36,7 +39,7 @@ export default function Section1() {
           </div>
           <div className={`${styles.decoContainer} ${styles.decoContainer1}`}>
             <Image
-              src="/../public/carbon.png"
+              src="/images/carbon.png"
               alt="code"
               layout='fill'
               objectFit='cover'
@@ -45,7 +48,7 @@ export default function Section1() {
           </div>
           <div className={`${styles.decoContainer} ${styles.decoContainer2}`}>
             <Image
-              src="/../public/carbon2.png"
+              src="/images/carbon2.png"
               alt="code"
               layout='fill'
               objectFit='cover'

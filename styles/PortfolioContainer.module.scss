@@ -48,6 +48,18 @@
             height: 15rem !important;
         }  
     }
+
+    @media #{$xLarge-up} {
+        .svg{
+            height: 20rem !important;
+        }  
+    }
+
+    @media #{$xxLarge-up} {
+        .svg{
+            height: 25rem !important;
+        }  
+    }
 }
 
 

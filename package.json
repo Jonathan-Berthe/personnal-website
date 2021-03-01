@@ -9,6 +9,7 @@
     "buildExp": "next build && next export"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "emailjs-com": "^2.6.4",
     "gsap": "^3.6.0",
     "lodash": "^4.17.20",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
     "babel-plugin-inline-react-svg": "^2.0.0",
+    "env-cmd": "^10.1.0",
     "react-svg-loader": "^3.0.3"
   }
 }

@@ -31,6 +31,10 @@
         path{
             fill: #f1f1f1;
         }
+
+        &.isApp path{
+            fill: #333;
+        }
     }
 
     &:hover svg{

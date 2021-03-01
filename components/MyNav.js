@@ -38,6 +38,7 @@ export default function MyNav() {
     }, [])
 
     const handleLinkClick = (e) => {
+        
         e.preventDefault()
         const targetSectionId = e.target.children[0].getAttribute("href")
         toSectionId(targetSectionId)
@@ -86,9 +87,9 @@ export default function MyNav() {
                 </ul>
                 <div className={styles.spacer1}></div>
             </nav>
-            <div className={styles.topArrow} onClick={handleLinkClick}>
+            {currentSection > 1 && <div className={styles.topArrow} onClick={handleLinkClick}>
                 <a href="#section1" target="_blank"> <UpSvg className={styles.svg} /> </a>
-            </div>
+            </div>}
             {currentSection < 3 && <div className={styles.downArrow} onClick={handleDownClick}>
                 <DownSvg className={styles.svg} />
             </div>}

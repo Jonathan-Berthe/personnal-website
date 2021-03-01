@@ -21,8 +21,9 @@
     transform: translateY(-50%);
 
     @extend %flex-center;
-    width: 100vw;
-    max-width: 100%;
+    width: 100%;
+    /* width: 100vw;
+    max-width: 100%; */
     margin-left: 4.5rem;
     color: $text-primary-color;
 
@@ -52,6 +53,13 @@
     z-index: -3;
     animation-name: animation-text;
     animation-duration: 2s;
+    max-width: 70rem;
+    .description {
+        margin-top: .5rem;
+        font-size: 1.5rem;
+        font-style: italic;
+        line-height: 2rem;
+    }
 
     @media #{$large-down} {
         margin-top: 85px;

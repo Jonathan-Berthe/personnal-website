@@ -16,7 +16,7 @@ export default function VisitCard() {
                     <div className={styles.cardContainer + ' visitCard'}>
                         <div className={styles.imgContainer}>
                             <Image
-                                src="/me.jpg"
+                                src="/images/me.jpg"
                                 alt="Picture of the author"
                                 layout='fill'
                                 objectFit='cover'

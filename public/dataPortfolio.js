@@ -1,7 +1,7 @@
 export default [
     {
         type: 'Web',
-        imageSrc: '/../public/benjamin.png',
+        imageSrc: '/images/benjamin.png',
         title: 'Challenge Benjamin Code',
         linkWebsite:'https://benjamin-code-challenge-jberthe.netlify.app/',
         linkYt: 'https://www.youtube.com/watch?v=vr0mCVDqDRo&feature=youtu.be',
@@ -10,7 +10,7 @@ export default [
     },
     {
         type: 'Web',
-        imageSrc: '/../public/seb.png',
+        imageSrc: '/images/seb.png',
         title: "A profesionnal climber's website clone",
         linkWebsite:'https://sebastienberthe-clone.netlify.app/',
         linkYt: 'https://www.youtube.com/watch?v=gvDUYCyTFbc&feature=youtu.be',
@@ -20,7 +20,7 @@ export default [
     
     {
         type: 'Web',
-        imageSrc: '/../public/vitrine.png',
+        imageSrc: '/images/vitrine.png',
         title: 'Personnal website',
         linkWebsite:'',
         linkYt: '',
@@ -29,7 +29,7 @@ export default [
     },
     {
         type: 'Web',
-        imageSrc: '/../public/mariage.png',
+        imageSrc: '/images/mariage.png',
         title: 'A wedding website',
         linkWebsite:'https://mariage-antoine-madeline-2020.netlify.app/',
         linkYt: 'https://www.youtube.com/watch?v=E0BXvAh6EHo&feature=youtu.be',
@@ -38,7 +38,7 @@ export default [
     },
     {
         type: 'App',
-        imageSrc: '/../public/meal2.png',
+        imageSrc: '/images/meal.png',
         title: 'Meal App',
         linkWebsite:'',
         linkYt: 'https://www.youtube.com/watch?v=1u-UGSfPG9o&feature=youtu.be',
@@ -47,7 +47,7 @@ export default [
     },
     {
         type: 'App',
-        imageSrc: '/../public/todo.png',
+        imageSrc: '/images/todo.png',
         title: "Todo App",
         linkWebsite:'',
         linkYt: 'https://www.youtube.com/watch?v=gvDUYCyTFbc&feature=youtu.be',
@@ -56,7 +56,7 @@ export default [
     },
     {
         type: 'App',
-        imageSrc: '/../public/clone_app.png',
+        imageSrc: '/images/clone_app.png',
         title: "UI Clones",
         linkWebsite:'',
         linkYt: '',
@@ -65,7 +65,7 @@ export default [
     },
     {
         type: 'App',
-        imageSrc: '/../public/shop.png',
+        imageSrc: '/images/shop.png',
         title: 'Shop App',
         linkWebsite:'',
         linkYt: 'https://www.youtube.com/watch?v=5ljdrJtF7Vg&feature=youtu.be',
@@ -74,7 +74,7 @@ export default [
     },
     {
         type: 'App',
-        imageSrc: '/../public/chat.png',
+        imageSrc: '/images/chat.png',
         title: 'Chat App',
         linkWebsite:'',
         linkYt: 'https://www.youtube.com/watch?v=JkwTmyQHS_c&feature=youtu.be',
