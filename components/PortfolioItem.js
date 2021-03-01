@@ -44,7 +44,7 @@ export default function PortfolioItem({ data }) {
                     quality={100}
                     priority={true}
                 />
-                <ExpandSVG className={data.type === 'App' ? styles.isApp : ''}/>
+                {/* <ExpandSVG className={data.type === 'App' ? styles.isApp : ''}/> */}
             </div>
             <div className={styles.spacer1}></div>
             <h2 className={styles.h2}>{data.title}</h2>
