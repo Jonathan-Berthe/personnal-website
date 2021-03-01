@@ -3,9 +3,9 @@
 @import "./utils";
 
 .portfolioContainer {
-    height: calc(100vh - #{$navHeight}); 
-    width: 80vw;
-    min-width: 350px;
+    height: calc(#{$constraintSecHeight} - #{$navHeight}); 
+    width: 88vw;
+    min-width: 35rem;
     transition: transform 1.5s ease-out;
    // z-index: 7;
     border-radius: 2%;
@@ -23,7 +23,7 @@
         } 
         .projectsContainer{
             width: 55%;
-            min-height: 450px;
+            min-height: 58rem;
         }
     }
 }
@@ -37,13 +37,20 @@
         margin-top: 2rem;
         font-weight: 600;
     }
+    .svg{
+        height: 14rem !important;
+        width: auto;  
+    }
+
+    @media #{$medium-down-small-height} {
+        margin-bottom: 2rem;
+        .svg{
+            height: 15rem !important;
+        }  
+    }
 }
 
-.svg{
-    height: 20rem !important;
-    width: auto;  
-    
-}
+
 
 .projectsContainer {
     height: 80%;
@@ -77,6 +84,10 @@
         background-color: #f1f1f1;
         transform: translateX(-30%) scale(0.9);
         opacity: 0.5;
+
+        img {
+            pointer-events: none !important;
+        }
     }
 
     .pos2 {
@@ -90,6 +101,10 @@
         background-color: #f1f1f1;
         transform: translateX(30%) scale(0.9);
         opacity: 0.5;
+
+        img {
+            pointer-events: none !important;
+        }
     }
 
     @for $i from 4 through 10 {

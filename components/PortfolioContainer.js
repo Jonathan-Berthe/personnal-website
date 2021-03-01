@@ -92,7 +92,7 @@ export default function PortfolioContainer({ title }) {
                                 <div className={styles.spacer4}></div>
                                 <div className={styles.titleContainer}>
                                     <MobileSVGBigRed className={styles.svg} />
-                                    <h2 className={styles.h2}>Mobile</h2>
+                                    <h2 className={styles.h2}>Mobile (Flutter)</h2>
                                 </div>
                             </>
                         )}

@@ -36,3 +36,6 @@ $visitCardMarginVert: 4rem;
 
 $maxReductFactor: 50 / 65;
 $navHeight: max(6.5rem, calc(65px * #{$maxReductFactor}) ); 
+
+// SectionMaxHeight
+$constraintSecHeight: min(800px, 100vh);

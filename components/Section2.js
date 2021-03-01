@@ -5,8 +5,18 @@ import { Tween } from "react-gsap";
 import PortfolioContainer from './PortfolioContainer';
 
 export default function Section2() {
+
+    const handleCloseClick = () => {
+        document.getElementsByClassName('modal')[0].style.display = "none"
+    }
+
     return (
         <div className={styles.section2 + ' section'} id='section2'>
+            <div id="myModal" className="modal" onClick={handleCloseClick}>
+                <span className="close">&times;</span>
+                <div className="modal-content" id="img01" />
+                <div id="caption"></div>
+            </div>
             <Controller>
                 <Scene triggerHook={0.85} duration={0}>
                     <Tween from={{ rotation: -180.0001 }} to={{ rotation: 0 }}>

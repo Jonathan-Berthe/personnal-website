@@ -4,8 +4,9 @@
 
 .section1 {
     background-color: $dark-primary-color;
-    height: 100vh;
+    height: $constraintSecHeight;
     min-height: 600px;
+    
     position: relative;
 
     @media #{$medium-down} {
@@ -168,7 +169,7 @@
     }
 
     @media #{$xxLarge-up} {
-        transform: translateX(-100px);
+        left: -100px;//transform: translateX(-100px);
     }
 }
 

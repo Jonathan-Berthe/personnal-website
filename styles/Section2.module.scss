@@ -2,7 +2,8 @@
 @import "./_placeholders.scss";
 @import "./utils";
 
-$sect2Heigh: calc(200vh - 2 * #{$navHeight}); // 2*(100vh - 65px) because 65px is the height of the fixed navbar
+
+$sect2Heigh: calc(2 * #{$constraintSecHeight} - 2 * #{$navHeight}); // 2*(100vh - 65px) because 65px is the height of the fixed navbar
 
 .section2 {
     background-color: $light-primary-color;
@@ -11,7 +12,7 @@ $sect2Heigh: calc(200vh - 2 * #{$navHeight}); // 2*(100vh - 65px) because 65px i
     position: relative;
 
     @media #{$medium-down-small-height} {
-        min-height:  1500px;
+        min-height:  190rem;
     }
 }
 
@@ -83,6 +84,11 @@ $sect2Heigh: calc(200vh - 2 * #{$navHeight}); // 2*(100vh - 65px) because 65px i
         transform: rotate(-90deg)  !important;
     }
 }
+
+
+
+
+
 
 
 
