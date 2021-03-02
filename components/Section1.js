@@ -30,7 +30,7 @@ export default function Section1() {
         <div className={styles.portraitContainer}>
           <div className={styles.imgContainer}>
             <Image
-              src="/images/me.jpg"
+              src="/images/me2.jpg"
               alt="Picture of the author"
               layout='fill'
               objectFit='cover'
