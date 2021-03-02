@@ -3,6 +3,9 @@ import styles from '../styles/PortfolioContainer.module.scss'
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
 import { useSwipeable } from "react-swipeable";
+
+
+
 import PortfolioItem from './PortfolioItem'
 
 import datasPortfolio from '../public/dataPortfolio'
@@ -63,6 +66,7 @@ export default function PortfolioContainer({ title }) {
     /// EVENT HANDLERS ///
 
     const handleClick = (eData) => {
+        console.log(eData)
         // Determine the position in the carrousel of the element by parsing his classname
         const posIndexOfElem = findPos(eData.event.target)
         // If we click to move the carrousel
@@ -70,13 +74,17 @@ export default function PortfolioContainer({ title }) {
     }
 
     const handleLeftSwipe = (eData) => {
+        console.log('left')
         const posIndexOfElem = findPos(eData.event.target)
+        console.log(posIndexOfElem)
         if (posIndexOfElem !== 2) return
         turnCarrousel(3)
     }
 
     const handleRightSwipe = (eData) => {
+        console.log('right')
         const posIndexOfElem = findPos(eData.event.target)
+        console.log(posIndexOfElem)
         if (posIndexOfElem !== 2) return
         turnCarrousel(1)
     }
@@ -85,8 +93,10 @@ export default function PortfolioContainer({ title }) {
         onSwipedLeft: handleLeftSwipe,
         onSwipedRight: handleRightSwipe,
         onTap: handleClick,
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true
+        preventDefaultTouchmoveEvent: false,
+        trackMouse: true,
+        trackTouch: false,                     // track touch input
+        delta: 5,
     })
 
 
@@ -109,7 +119,7 @@ export default function PortfolioContainer({ title }) {
                             {
                                 listOfProjects.map((projectData, i) => {
                                     return (
-                                        <div key={i} /* onClick={handleClick} */  {...eventsHandlers} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
+                                        <div key={i}  {...eventsHandlers} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
                                             <PortfolioItem data={projectData} />
                                         </div>
                                     )
