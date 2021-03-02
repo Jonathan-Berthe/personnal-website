@@ -1,4 +1,4 @@
-import { useEffect } from 'react/cjs/react.development'
+import { useEffect } from 'react'
 import Layout from '../components/Layout'
 import Section1 from '../components/Section1'
 import Section2 from '../components/Section2'
