@@ -12,7 +12,7 @@ $sect2Heigh: calc(2 * #{$constraintSecHeight} - 2 * #{$navHeight}); // 2*(100vh 
     position: relative;
 
     @media #{$medium-down-small-height} {
-        min-height:  190rem;
+        min-height:  180rem;
     }
 }
 

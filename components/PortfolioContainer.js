@@ -2,6 +2,7 @@ import styles from '../styles/PortfolioContainer.module.scss'
 
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
+import { useSwipeable } from "react-swipeable";
 import PortfolioItem from './PortfolioItem'
 
 import datasPortfolio from '../public/dataPortfolio'
@@ -33,7 +34,9 @@ export default function PortfolioContainer({ title }) {
         }
 
         // If we click to move the carrousel
-        if (posIndexOfElem === 1 || posIndexOfElem === 3) {
+        turnCarrousel(posIndexOfElem)
+
+        /* if (posIndexOfElem === 1 || posIndexOfElem === 3) {
             const previousElem = Array.from(Array(nbrOfProjects).keys()).map((i) => (
                 document.querySelectorAll(`.${title}.${styles[`pos${i + 1}`]}`)[0]
             ))
@@ -57,8 +60,46 @@ export default function PortfolioContainer({ title }) {
                 previousElem[0].classList.add(styles[`pos${previousElem.length}`])
             }
 
-        }
+        } */
 
+    }
+
+    // posIndexOfElem is the index of the element wich will become the front element
+    const turnCarrousel = (posIndexOfElem) => {
+        if (posIndexOfElem === 1 || posIndexOfElem === 3) {
+            const previousElem = Array.from(Array(nbrOfProjects).keys()).map((i) => (
+                document.querySelectorAll(`.${title}.${styles[`pos${i + 1}`]}`)[0]
+            ))
+            previousElem.forEach((elem, i) => {
+                elem.classList.remove(styles[`pos${i + 1}`])
+            })
+
+            // if we clicking on the left element of the carrousel => right shift of all elements
+            if (posIndexOfElem === 1) {
+                for (let i = 0; i < previousElem.length - 1; i++) {
+                    previousElem[i].classList.add(styles[`pos${i + 2}`])
+                }
+                previousElem[previousElem.length - 1].classList.add(styles.pos1)
+            }
+            // if we clicking on the right element of the carrousel => left shift of all elements
+            else if (posIndexOfElem === 3) {
+                for (let i = previousElem.length - 1; i > 0; i--) {
+                    previousElem[i].classList.add(styles[`pos${i}`])
+                }
+                previousElem[0].classList.add(styles[`pos${previousElem.length}`])
+            }
+        }
+    }
+
+    const swipeHandlers = (index) => {
+        console.log(index)
+        if (index !== 1) return
+        return useSwipeable({
+            onSwipedLeft: () => turnCarrousel(3),
+            onSwipedRight: () => turnCarrousel(0),
+            preventDefaultTouchmoveEvent: true,
+            trackMouse: true
+        })
     }
 
     return (
@@ -80,7 +121,7 @@ export default function PortfolioContainer({ title }) {
                             {
                                 listOfProjects.map((projectData, i) => {
                                     return (
-                                        <div key={i} onClick={handleClick} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
+                                        <div key={i} onClick={handleClick} {...swipeHandlers(i + 1)} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
                                             <PortfolioItem data={projectData} />
                                         </div>
                                     )
