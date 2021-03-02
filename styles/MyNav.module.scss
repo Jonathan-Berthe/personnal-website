@@ -26,7 +26,7 @@
     li {
         @extend %flex-center;
         margin: 1.5rem 1.0rem;
-        padding: 0 1.5rem;
+        
         border-radius: 5%;
         min-width: 7.0rem;
         cursor: pointer;
@@ -37,6 +37,10 @@
         a{
             color: $text-primary-color;
         }
+    }
+
+    li:not(.logo){
+        padding: 0 1.5rem;
     }
 
     li.active{
@@ -218,7 +222,7 @@
     }
 
     .svg{        
-        height: 2.2rem;
+        height: 3.5rem;
     }
 
     .spacer1, .spacer6{
