@@ -26,6 +26,7 @@ $xLarge-up: "only screen and (min-width: #{$xLarge})";
 $xxLarge-up: "only screen and (min-width: #{$xxLarge})";
 
 $medium-down-small-height: "only screen and (max-width: #{$medium}), screen and (max-height: 600px)";
+$is-not-mobile-device: "only screen and (min-width: #{$xSmall})";
 
 // Visit card
 $visitCardHeight: 16rem;

@@ -56,8 +56,9 @@
     }
 
     li:not(.logo, .contactMe, .active):hover::before{
-        transform: translate(0, 1.5rem);
-        
+        @media #{$is-not-mobile-device} {
+            transform: translate(0, 1.5rem);   
+        }
     }
 
     .contactMe{
@@ -73,7 +74,9 @@
         }
 
         &:hover{
-            filter: opacity(0.8);
+            @media #{$is-not-mobile-device} {
+                filter: opacity(0.8);
+            }
         }
     }
 }
@@ -86,7 +89,9 @@
     width: auto;
     transition: filter .2s ease-out;
     &:hover{
-        filter: opacity(0.8);
+        @media #{$is-not-mobile-device} {
+            filter: opacity(0.8);
+        }
     }
     
 }
@@ -107,7 +112,9 @@
             fill: $text-accent-color; 
         }
         &:hover{
-            filter: opacity(0.6);
+            @media #{$is-not-mobile-device} {
+                filter: opacity(0.6);
+            }
         }
     }
 }

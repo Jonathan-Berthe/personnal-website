@@ -14,6 +14,7 @@ export default function SectionContact() {
 
     useEffect(() => {
         document.getElementsByClassName(styles.sectionContact)[0].onmousemove = event => {
+            if(window.innerWidth <= 480) return
             const posRelX = event.clientX / window.innerWidth
             document.getElementsByClassName(styles.circleRed)[0].style.transform = `translateX(-${posRelX * 10}%)`
             document.getElementsByClassName(styles.circleBeige)[0].style.transform = `translateX(${posRelX * 30}%)`

@@ -3,71 +3,61 @@
 @import "./utils";
 
 .portfolioContainer {
-    height: calc(#{$constraintSecHeight} - #{$navHeight}); 
+    height: calc(#{$constraintSecHeight} - #{$navHeight});
     width: 88vw;
     min-width: 35rem;
     transition: transform 1.5s ease-out;
     border-radius: 2%;
-    @extend %flex-center; 
+    @extend %flex-center;
 
     text-align: center;
     color: $text-primary-color;
 
     @media #{$medium-down-small-height} {
+        // In small screen, height will be: .titleContainer.height + .projectsContainer.height  + (.projectsContainer.margin-vertical * 2) + .app.margin-top = 24.5 + 50 (or 45 for xxsmall screen but let take 50) + 30px = 74.5rem + 30px
         height: auto;
         flex-direction: column;
-        &.app{
-           flex-direction: column-reverse;
-           margin-top: 50px;
-        } 
-        .projectsContainer{
-            width: 55%;
-            min-height: 50rem;//58rem;
+        &.app {
+            flex-direction: column-reverse;
+            margin-top: 50px;
         }
     }
 
-    @media #{$xSmall-down} {  
-        .projectsContainer{
-            min-height: 45rem;//58rem;
-        }
-    }
 }
 
-.titleContainer{
+.titleContainer {
     @extend %flex-center;
-   // height: 100%;
     flex-direction: column;
     .h2 {
         line-height: 5.5rem;
         margin-top: 2rem;
         font-weight: 600;
     }
-    .svg{
+    .svg {
         height: 14rem !important;
-        width: auto;  
+        width: auto;
     }
 
     @media #{$medium-down-small-height} {
+        // In small screen, height of .titleContainer will be: h2.line-height + h2.margin-top + svg.margin-bottom + svg.height = 5.5 + 2 + 15 + 2 = 24.5rem
         margin-bottom: 2rem;
-        .svg{
+        .svg {
             height: 15rem !important;
-        }  
+        }
     }
 
     @media #{$xLarge-up} {
-        .svg{
+        .svg {
             height: 20rem !important;
-        }  
+        }
     }
 
     @media #{$xxLarge-up} {
-        .svg{
+        .svg {
             height: 25rem !important;
-        }  
+        }
     }
 }
-
-
 
 .projectsContainer {
     height: 80%;
@@ -75,8 +65,8 @@
     max-width: 400px;
     margin: 15px 0;
     position: relative;
-     @extend %flex-center;
-    flex-direction: column; 
+    @extend %flex-center;
+    flex-direction: column;
 
     .project {
         pointer-events: all;
@@ -86,18 +76,18 @@
         height: 100%;
         border-radius: 1%;
         z-index: -1;
-        transition: all .3s ease-out;
+        transition: all 0.3s ease-out;
         overflow: hidden;
 
         display: flex;
         flex-direction: column;
 
-       & * {
+        & * {
             pointer-events: none;
-        } 
+        }
     }
 
-    .pos1{
+    .pos1 {
         background-color: #f1f1f1;
         transform: translateX(-30%) scale(0.9);
         opacity: 0.5;
@@ -130,16 +120,12 @@
         }
     }
 
-}
-
-
-/* @media screen and (max-width: 1000px) {
-
-    .portfolioContainer{
-        width: 75vw;
+    @media #{$medium-down-small-height} {
+        width: 55%;
+        height: 50rem;
     }
-     
+
+    @media #{$xSmall-down} {
+        height: 45rem;
+    }
 }
- */
-
-

@@ -12,9 +12,9 @@ $sect2Heigh: calc(2 * #{$constraintSecHeight} - 2 * #{$navHeight}); // 2*(100vh 
     position: relative;
 
     @media #{$medium-down-small-height} {
-        //min-height:  180rem;
-        min-height: calc(154rem + 110px);
+        //height:  .portfolioContainer.height * 2 + .app.margin-top + 5rem of margin= 149rem + 30px*2 + 50px + 5rem = 154rem + 110px
         height: calc(154rem + 110px);
+        //min-height: calc(154rem + 110px);
     }
 }
 
@@ -57,7 +57,13 @@ $sect2Heigh: calc(2 * #{$constraintSecHeight} - 2 * #{$navHeight}); // 2*(100vh 
         z-index: 5;
     }
     &:hover{
-        transform: rotate(-180.0001deg) !important;
+        @media #{$is-not-mobile-device} {
+            transform: rotate(-180.0001deg) !important;
+        }
+    }
+
+    @media #{$medium-down} {
+        left: 100px;
     }
 }
 
@@ -83,7 +89,9 @@ $sect2Heigh: calc(2 * #{$constraintSecHeight} - 2 * #{$navHeight}); // 2*(100vh 
         z-index: 5;
     }
     &:hover{
-        transform: rotate(-90deg)  !important;
+        @media #{$is-not-mobile-device} {
+            transform: rotate(-90deg)  !important;
+        }     
     }
 }
 
