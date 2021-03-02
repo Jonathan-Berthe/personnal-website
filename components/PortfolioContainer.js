@@ -18,10 +18,8 @@ export default function PortfolioContainer({ title }) {
     const listOfProjects = datasPortfolio.filter(e => e.type === title)
     const nbrOfProjects = listOfProjects.length
 
-    const handleClick = (e) => {
-
-        // Determine the position in the carrousel of the element by parsing his classname
-        const listOfClassName = e.target.classList
+    const findPos = (divElem) => {
+        const listOfClassName = divElem.classList
         let posIndexOfElem = 0
         for (const className of listOfClassName) {
             const posPosition = className.indexOf('pos')
@@ -32,36 +30,7 @@ export default function PortfolioContainer({ title }) {
                 break
             }
         }
-
-        // If we click to move the carrousel
-        turnCarrousel(posIndexOfElem)
-
-        /* if (posIndexOfElem === 1 || posIndexOfElem === 3) {
-            const previousElem = Array.from(Array(nbrOfProjects).keys()).map((i) => (
-                document.querySelectorAll(`.${title}.${styles[`pos${i + 1}`]}`)[0]
-            ))
-            previousElem.forEach((elem, i) => {
-                elem.classList.remove(styles[`pos${i + 1}`])
-            })
-
-            // if we clicking on the left element of the carrousel => right shift of all elements
-            if (posIndexOfElem === 1) {
-                for (let i = 0; i < previousElem.length - 1; i++) {
-                    previousElem[i].classList.add(styles[`pos${i + 2}`])
-                }
-                previousElem[previousElem.length - 1].classList.add(styles.pos1)
-
-            }
-            // if we clicking on the right element of the carrousel => left shift of all elements
-            else if (posIndexOfElem === 3) {
-                for (let i = previousElem.length - 1; i > 0; i--) {
-                    previousElem[i].classList.add(styles[`pos${i}`])
-                }
-                previousElem[0].classList.add(styles[`pos${previousElem.length}`])
-            }
-
-        } */
-
+        return posIndexOfElem
     }
 
     // posIndexOfElem is the index of the element wich will become the front element
@@ -91,16 +60,35 @@ export default function PortfolioContainer({ title }) {
         }
     }
 
-    const swipeHandlers = (index) => {
-        console.log(index)
-        if (index !== 1) return
-        return useSwipeable({
-            onSwipedLeft: () => turnCarrousel(3),
-            onSwipedRight: () => turnCarrousel(0),
-            preventDefaultTouchmoveEvent: true,
-            trackMouse: true
-        })
+    /// EVENT HANDLERS ///
+
+    const handleClick = (eData) => {
+        // Determine the position in the carrousel of the element by parsing his classname
+        const posIndexOfElem = findPos(eData.event.target)
+        // If we click to move the carrousel
+        turnCarrousel(posIndexOfElem)
     }
+
+    const handleLeftSwipe = (eData) => {
+        const posIndexOfElem = findPos(eData.event.target)
+        if (posIndexOfElem !== 2) return
+        turnCarrousel(3)
+    }
+
+    const handleRightSwipe = (eData) => {
+        const posIndexOfElem = findPos(eData.event.target)
+        if (posIndexOfElem !== 2) return
+        turnCarrousel(1)
+    }
+
+    const eventsHandlers = useSwipeable({
+        onSwipedLeft: handleLeftSwipe,
+        onSwipedRight: handleRightSwipe,
+        onTap: handleClick,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    })
+
 
     return (
         <Controller >
@@ -121,7 +109,7 @@ export default function PortfolioContainer({ title }) {
                             {
                                 listOfProjects.map((projectData, i) => {
                                     return (
-                                        <div key={i} onClick={handleClick} {...swipeHandlers(i + 1)} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
+                                        <div key={i} /* onClick={handleClick} */  {...eventsHandlers} className={`${title} ${styles.project} ${styles[`pos${i + 1}`]}`}>
                                             <PortfolioItem data={projectData} />
                                         </div>
                                     )
