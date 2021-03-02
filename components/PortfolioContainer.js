@@ -66,7 +66,6 @@ export default function PortfolioContainer({ title }) {
     /// EVENT HANDLERS ///
 
     const handleClick = (eData) => {
-        console.log(eData)
         // Determine the position in the carrousel of the element by parsing his classname
         const posIndexOfElem = findPos(eData.event.target)
         // If we click to move the carrousel
@@ -74,17 +73,13 @@ export default function PortfolioContainer({ title }) {
     }
 
     const handleLeftSwipe = (eData) => {
-        console.log('left')
         const posIndexOfElem = findPos(eData.event.target)
-        console.log(posIndexOfElem)
         if (posIndexOfElem !== 2) return
         turnCarrousel(3)
     }
 
     const handleRightSwipe = (eData) => {
-        console.log('right')
         const posIndexOfElem = findPos(eData.event.target)
-        console.log(posIndexOfElem)
         if (posIndexOfElem !== 2) return
         turnCarrousel(1)
     }

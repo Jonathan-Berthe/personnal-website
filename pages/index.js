@@ -9,7 +9,6 @@ export default function Home() {
   // https://stackoverflow.com/questions/1517924/javascript-mapping-touch-events-to-mouse-events
   // Goal: map touch event to mouse events for react-swipeable working on device (to swipe portfolio container)
   function touchHandler(event) {
-    console.log('map')
     var touches = event.changedTouches,
       first = touches[0],
       type = "";
