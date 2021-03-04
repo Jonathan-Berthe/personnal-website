@@ -4,14 +4,19 @@
 
 .section1 {
     background-color: $dark-primary-color;
-    height: $constraintSecHeight;
-    min-height: 600px;
+    height: min(700px, 100vh);
+    min-height: 670px;
 
     position: relative;
 
     @media #{$medium-down} {
         min-height: 670px;
-        max-height: 670px;
+        
+    }
+
+    @media #{$xSmall-down} {
+        min-height: 620px;
+        
     }
 }
 
@@ -22,14 +27,13 @@
     transform: translateY(-50%);
 
     @extend %flex-center;
-    width: 100%;
-    /* width: 100vw;
-    max-width: 100%; */
+    width: calc(100% - 4.5rem);
     margin-left: 4.5rem;
     color: $text-primary-color;
 
     @media #{$large-down} {
         flex-direction: column-reverse;
+        width: 100%;
         margin-left: 0;
         padding: 0 5vw;
         top: 55%;
@@ -52,7 +56,7 @@
     z-index: -3;
     animation-name: animation-text;
     animation-duration: 2s;
-    max-width: 70rem;
+    max-width: 60rem;
     .description {
         margin-top: 0.5rem;
         font-size: 1.5rem;
@@ -61,7 +65,8 @@
     }
 
     @media #{$large-down} {
-        margin-top: 85px;
+        margin-top: 90px;
+        max-width: 70vw;
     }
 
     @media #{$medium-down} {
@@ -69,9 +74,14 @@
     }
 
     @media #{$small-down} {
+        //max-width: 55vw;
         h1 {
             margin-bottom: 10px;
         }
+    }
+
+    @media #{$xSmall-down} {
+        max-width: 100%;
     }
 }
 
@@ -84,8 +94,8 @@
         @extend %flex-center;
         min-width: 200px;
         min-height: 200px;
-        width: 25rem;
-        height: 25rem;
+        width: 20rem;
+        height: 20rem;
         border-radius: 5%;
         overflow: hidden;
         position: relative;
@@ -105,8 +115,8 @@
         left: 0;
         min-width: 200px;
         min-height: 200px;
-        width: 25rem;
-        height: 25rem;
+        width: 20rem;
+        height: 20rem;
         border-radius: 5%;
         transition: transform 1s ease-out;
 
@@ -174,12 +184,12 @@
 
     @media #{$xLarge-up} {
         .imgContainer {
-            min-width: 300px;
-            min-height: 300px;
+            min-width: 290px;
+            min-height: 290px;
         }
         .decoContainer {
-            min-width: 300px;
-            min-height: 300px;
+            min-width: 290px;
+            min-height: 290px;
         }
     }
 

@@ -1,5 +1,5 @@
 import styles from "../styles/MyNav.module.scss"
-import { useEffect, useState, createRef } from "react"
+import { useEffect, useState } from "react"
 
 
 import { debounce } from 'lodash'
