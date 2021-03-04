@@ -12,6 +12,7 @@ export default function Layout({ children }) {
                 <meta name="description" content="Personnal website with portfolio of Jonathan Berthe, app and web front-end developper, based in Brussels, Belgium."/>
                 <meta name="keywords" content="Jonathan, Berthe, front-end developer, mobile, web, flutter, react, portfolio"/>
                 <meta name="robots" content="index"/>
+                <meta name="google-site-verification" content="2yevhVjFIeRSUcqbW6tgc_JHqCuNk52c6JJ6Kfw8Xx0" />
             </Head>
             <header>
             </header>
