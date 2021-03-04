@@ -6,7 +6,7 @@ export default function Layout({ children }) {
         <div className={styles.container}>
             <Head>
                 <title>Jonathan Berthe</title>
-               {/*  <link rel="icon" href="/favicon.ico" /> */}
+                <link rel="icon" href="/code.svg" /> 
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <header>
