@@ -11,6 +11,7 @@
 
     @media #{$medium-down} {
         min-height: 670px !important;
+        max-height: 670px;
     }
 }
 
