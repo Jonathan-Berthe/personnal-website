@@ -2,6 +2,7 @@
 @import "./_variables.scss";
 
 html {
+  -webkit-text-size-adjust:none;
   font-size: 62.5%;
   overflow-x: hidden;
 
