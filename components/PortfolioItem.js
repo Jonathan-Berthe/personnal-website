@@ -22,7 +22,7 @@ export default function PortfolioItem({ data }) {
         ReactDOM.render(
             <Image
                 src={data.imageSrc}
-                alt="Picture of the author"
+                alt={`Screen of the project "${data.title}"`}
                 width={1100}
                 height={640}
                 quality={100}
@@ -38,7 +38,7 @@ export default function PortfolioItem({ data }) {
                 <Image onClick={handleExpandClick}
                     className={styles.image}
                     src={data.imageSrc}
-                    alt="Picture of the author"
+                    alt={`Screen of the project "${data.title}"`}
                     width={1100}
                     height={640}
                     quality={100}

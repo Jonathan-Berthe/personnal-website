@@ -152,23 +152,23 @@
 
     @media #{$xSmall-down} {
         .imgContainer {
-            min-width: 150px;
-            min-height: 150px;
+            width: 150px;
+            height: 150px;
         }
         .decoContainer {
-            min-width: 150px;
-            min-height: 150px;
+            width: 150px;
+            height: 150px;
         }
     }
 
     @media #{$xLarge-up} {
         .imgContainer {
-            min-width: 300px;
-            min-height: 300px;
+            width: 300px;
+            height: 300px;
         }
         .decoContainer {
-            min-width: 300px;
-            min-height: 300px;
+            width: 300px;
+            height: 300px;
         }
     }
 
