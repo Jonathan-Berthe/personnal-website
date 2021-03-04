@@ -10,10 +10,8 @@
     position: relative;
 
     @media #{$medium-down} {
-        min-height: 670px !important;
-        max-height: 670px; 
-        /* min-height: 730px !important;
-        max-height: 730px !important; */
+        min-height: 670px;
+        max-height: 670px;
     }
 }
 
@@ -164,18 +162,14 @@
     }
 
     @media #{$xSmall-down} {
-       .imgContainer {
+        .imgContainer {
             min-width: 150px;
             min-height: 150px;
-            max-width: 150px;
-            max-height: 150px;
         }
         .decoContainer {
             min-width: 150px;
             min-height: 150px;
-            max-width: 150px;
-            max-height: 150px;
-        } 
+        }
     }
 
     @media #{$xLarge-up} {
