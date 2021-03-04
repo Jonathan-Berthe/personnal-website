@@ -91,6 +91,11 @@
 
         transform: scale(1);
         transition: transform 1s ease-out;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
     }
 
     .decoContainer {
@@ -103,6 +108,11 @@
         height: 25rem;
         border-radius: 5%;
         transition: transform 1s ease-out;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
     }
 
     .decoContainer1 {
@@ -152,23 +162,23 @@
 
     @media #{$xSmall-down} {
         .imgContainer {
-            width: 150px;
-            height: 150px;
+            min-width: 150px;
+            min-height: 150px;
         }
         .decoContainer {
-            width: 150px;
-            height: 150px;
+            min-width: 150px;
+            min-height: 150px;
         }
     }
 
     @media #{$xLarge-up} {
         .imgContainer {
-            width: 300px;
-            height: 300px;
+            min-width: 300px;
+            min-height: 300px;
         }
         .decoContainer {
-            width: 300px;
-            height: 300px;
+            min-width: 300px;
+            min-height: 300px;
         }
     }
 
