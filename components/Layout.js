@@ -5,9 +5,13 @@ export default function Layout({ children }) {
     return (
         <div className={styles.container}>
             <Head>
+                <meta charset="utf-8" />
                 <title>Jonathan Berthe</title>
-                <link rel="icon" href="/code.svg" /> 
+                <link rel="icon" href="/code.svg" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name="description" content="Personnal website with portfolio of Jonathan Berthe, app and web front-end developper, based in Brussels, Belgium."/>
+                <meta name="keywords" content="Jonathan, Berthe, front-end developer, mobile, web, flutter, react, portfolio"/>
+                <meta name="robots" content="index"/>
             </Head>
             <header>
             </header>

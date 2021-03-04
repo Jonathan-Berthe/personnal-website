@@ -31,7 +31,7 @@ export default function Section1() {
           <div className={styles.imgContainer}>
             <Image
               src="/images/me2.jpg"
-              alt="Picture of the author"
+              alt="Picture of Jonathan Berthe"
               layout='fill'
               objectFit='cover'
               priority={true}
@@ -40,7 +40,7 @@ export default function Section1() {
           <div className={`${styles.decoContainer} ${styles.decoContainer1}`}>
             <Image
               src="/images/carbon.png"
-              alt="code"
+              alt="code picture decoration"
               layout='fill'
               objectFit='cover'
               priority={true}
@@ -49,7 +49,7 @@ export default function Section1() {
           <div className={`${styles.decoContainer} ${styles.decoContainer2}`}>
             <Image
               src="/images/carbon2.png"
-              alt="code"
+              alt="code picture decoration"
               layout='fill'
               objectFit='cover'
               priority={true}

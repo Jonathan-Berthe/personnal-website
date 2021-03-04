@@ -3,7 +3,6 @@ import styles from '../styles/SectionContact.module.scss'
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
 import emailjs from 'emailjs-com'
-import axios from 'axios'
 
 import { useEffect, useState } from 'react'
 import VisitCard from './VisitCard'

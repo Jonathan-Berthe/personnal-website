@@ -17,7 +17,7 @@ export default function VisitCard() {
                         <div className={styles.imgContainer}>
                             <Image
                                 src="/images/me.jpg"
-                                alt="Picture of the author"
+                                alt="Picture of Jonathan Berthe"
                                 layout='fill'
                                 objectFit='cover'
                                 priority={true}
