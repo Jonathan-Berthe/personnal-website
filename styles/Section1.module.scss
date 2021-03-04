@@ -10,7 +10,7 @@
     position: relative;
 
     @media #{$medium-down} {
-        min-height: 670px;
+        min-height: 670px !important;
     }
 }
 
