@@ -10,10 +10,10 @@
     position: relative;
 
     @media #{$medium-down} {
-        /* min-height: 670px !important;
-        max-height: 670px; */
-        min-height: 730px !important;
-        max-height: 730px !important;
+        min-height: 670px !important;
+        max-height: 670px; 
+        /* min-height: 730px !important;
+        max-height: 730px !important; */
     }
 }
 
