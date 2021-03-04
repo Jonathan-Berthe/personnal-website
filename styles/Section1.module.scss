@@ -92,8 +92,8 @@
     animation-duration: 2s;
     .imgContainer {
         @extend %flex-center;
-        min-width: 200px;
-        min-height: 200px;
+        min-width: 240px;
+        min-height: 240px;
         width: 20rem;
         height: 20rem;
         border-radius: 5%;
@@ -113,8 +113,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        min-width: 200px;
-        min-height: 200px;
+        min-width: 240px;
+        min-height: 240px;
         width: 20rem;
         height: 20rem;
         border-radius: 5%;
