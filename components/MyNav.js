@@ -49,7 +49,7 @@ export default function MyNav() {
         const currentSectionHeight = document.querySelector(`#section${currentSection}`).offsetHeight
         const navbarHeight = document.getElementsByClassName(styles.navContainer)[0].offsetHeight
         if (currentSection === 2 && window.scrollY < (currentSectionTop - navbarHeight + 1 + currentSectionHeight * 0.4)) {
-            window.scroll({ top: currentSectionTop - navbarHeight + 1 + currentSectionHeight / 2, behavior: 'smooth' });
+            window.scroll({ top: currentSectionTop - navbarHeight + 1 + currentSectionHeight / 2 , behavior: 'smooth'  });
             return
         }
         toSectionId(`#section${currentSection + 1}`)
@@ -59,7 +59,7 @@ export default function MyNav() {
         if (document.querySelector(targetSectionId) === null) return
         const targetSectionTop = document.querySelector(targetSectionId).offsetTop
         const navbarHeight = document.getElementsByClassName(styles.navContainer)[0].offsetHeight
-        window.scroll({ top: targetSectionTop - navbarHeight + 1, behavior: 'smooth' });
+        window.scroll({ top: targetSectionTop - navbarHeight + 1 , behavior: 'smooth' });
     }
 
     return (

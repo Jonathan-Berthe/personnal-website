@@ -5,7 +5,6 @@ export default function Layout({ children }) {
     return (
         <div className={styles.container}>
             <Head>
-                <meta charset="utf-8" />
                 <title>Jonathan Berthe</title>
                 <link rel="icon" href="/code.svg" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />

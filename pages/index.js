@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import Section1 from '../components/Section1'
 import Section2 from '../components/Section2'
 import SectionContact from '../components/SectionContact'
+import smoothscroll from 'smoothscroll-polyfill'
 
 export default function Home() {
 
@@ -34,10 +35,11 @@ export default function Home() {
   }
 
   useEffect(() => {
-    document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);
+    document.addEventListener("touchstart", touchHandler, true)
+    document.addEventListener("touchmove", touchHandler, true)
+    document.addEventListener("touchend", touchHandler, true)
+    document.addEventListener("touchcancel", touchHandler, true)
+    smoothscroll.polyfill()
   }, [])
 
   return (
